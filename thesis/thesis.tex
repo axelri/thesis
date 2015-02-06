@@ -14,6 +14,8 @@
 \usepackage{mathtools}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references/bibliography.bib}
 
 \def\theauthor{Axel Riese \& André Nyström}
 \def\thedate{\today}
@@ -30,4 +32,8 @@
 \mbox{}
 
 \section{Introduction}
+\input{thesis/introduction.tex}
+Test \cite{tetris}
+
+\printbibliography
 \end{document}

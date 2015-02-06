@@ -1,3 +1,7 @@
 *.aux
 *.log
+*.xml
+*.blg
+*.bcf
+*.bbl
 thesis.pdf
