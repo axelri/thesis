@@ -21,3 +21,15 @@ En till förenkling (se tetris-avhandling) är att anta att spelaren vet alla bl
 
 * Approximering (avgörbart?)
 * Heuristik
+
+## Avgränsningar
+
+* Spelaren vet alla block i förväg (offline, se tetris)
+   * Utvidgning: K-lookahead
+* Spelaren kan genomföra hur många rotationer och translationer som helst
+   * Utvidgning: blocket faller, spelaren hinner bara göra vissa rotationer
+* Spelaren kan bara placera ett 2x2-block innan blocken på spelplanen räknas (ryms i "hur många som helst")
+   * Utvigdning: Spelaren kan placera K st block i taget
+   * Ännu svårare: Markören förflyttar sig som i spelet, vissa block räknas tidigare än andra
+   * Alternativ: spelaren kan placera hur många block som helst innan de räknas (troligen enklast beräkningsmässigt)
+* Inga bonuspoäng, ingen super-ruta
