@@ -12,6 +12,7 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{mathtools}
+\usepackage[ireport]{pkg/KTHEEtitlepage}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \usepackage[backend=biber]{biblatex}
@@ -27,15 +28,32 @@
 \title{\assignment}
 
 \begin{document}
-\thispagestyle{empty}
-\maketitle
-\mbox{}
+% Information to appear on the title page:
+\ititle{My Title}
+\isubtitle{My Subtitle}
+\iauthor{Me and Myself}
+\idate{2006}
+\irefnr{IR-EE-Dummy 2000:099}
 
-\input{introduction.tex}
-\input{objective.tex}
-\input{background.tex}
-\input{method.tex}
-\input{results.tex}
-\input{discussion.tex}
+\iaddress{Signal Processing\\
+  School of Electrical Engineering\\
+  Kungliga Tekniska Högskolan}
+\makeititle
+
+% Everything below is exactly as for a normal document and 
+% the layout of that document should not be affected in any
+% way by the title page.
+
+\title{Short example of the KTHEEtitlepage package}
+\author{Mats Bengtsson}
+
+\maketitle
+
+\input{thesis/introduction.tex}
+\input{thesis/objective.tex}
+\input{thesis/background.tex}
+\input{thesis/method.tex}
+\input{thesis/results.tex}
+\input{thesis/discussion.tex}
 \printbibliography
 \end{document}

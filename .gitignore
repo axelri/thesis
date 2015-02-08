@@ -5,3 +5,4 @@
 *.bcf
 *.bbl
 thesis.pdf
+.DS_STORE
