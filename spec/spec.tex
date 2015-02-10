@@ -1,0 +1,47 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
+\usepackage[inner=3cm,top=3cm,outer=3cm,bottom=3cm]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\input{config/config.tex}
+
+\title{Algorithms and Complexity for Video and Computer Games \\
+    \textit{Project Specification}} % Title
+\author{\cauthor} % Author name
+\date{\today} % Date for the report
+
+\begin{document}
+\maketitle % Insert the title, author and date
+
+\section{Introduction}
+Our chosen general subject is algorithms and complexity in computer games, specifically the 2004 puzzle game ``Lumines''. Our project will concern the computational complexity of one or several goals related to playing the game.
+
+The subject is of interest because Lumines is to our knowledge not very well researched when it comes to computational complexity. Similar puzzle games, such as Tetris, Bejeweled and Puyo puyo has been more thoroughly examined in recent years, and it seems interesting to us how Lumines will compare. While these findings may seem to be of lesser importance, they may teach us more about the nature of computational complexity, or aid in reductions to other problem instances.
+
+\section{Problem statement}
+The essence of Lumines is to create as many $2 \times 2$ monochromatic squares (blocks) as possible, using the randomized sequence of $2 \times 2$ dichromatic squares (pieces) given to you during a play session.
+
+The problem we want to answer is ``Is Lumines NP-complete?''. More specifically, we want to focus our attention on the problem of maximizing the number of blocks one can create using a priorly known sequence of pieces and an initial gameboard. 
+
+\section{Approach}
+Our approach to the problem is at first to simplify the game mechanics, for example we will probably consider the ``sweep mechanic'' of the game to be instantaneous instead of moving. We will also consider the offline version of the game, where every piece involved in a game sessions is known beforehand, rather than the actual online version, where the game pieces are generated probabilistically.
+
+We will then start to define the rules of the game in a rigorous manner. Once we have a mathematical system, we can proceed to formulate a goal of interest in that system. After this is done, we can try to prove that the goal is in fact NP-complete. This is done in the standard way; we will first show that the problem is in NP, by proving that an answer is verifiable in polynomic time, and then find and prove a suitably reduction from a known NP-complete problem to our problem at hand.
+
+Lastly, if time permits, we can change the rules of our system to be more true to the actual game. For example could consider continuous sweeps, piece drop speed simulation and online versions. We will then try to prove our findings in this new system, which will hopefully tell us more about the original game.
+
+\section{References}
+\section{Time plan}
+\end{document}

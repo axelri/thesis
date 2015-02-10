@@ -1,10 +1,13 @@
 TEX = lualatex
 BIB = biber
 TFLAGS = -shell-escape -halt-on-error -file-line-error -interaction=nonstopmode
+
+SDIR = spec
+SMAIN = spec
 DIR = thesis
 MAIN = thesis
 
-all: thesis.pdf
+all: thesis.pdf spec.pdf
 
 compile: $(wildcard $(DIR)/*.tex)
 	$(TEX) $(TFLAGS) $(DIR)/$(MAIN).tex
@@ -15,11 +18,14 @@ bib: compile
 thesis.pdf: bib
 	$(TEX) $(TFLAGS) $(DIR)/$(MAIN).tex
 
+spec.pdf: $(wildcard $(SDIR)/*.tex)
+	$(TEX) $(TFLAGS) $(SDIR)/$(SMAIN).tex
+
 clean:
 	rm -f *.aux *.log *.xml *.blg *.bcf *.bbl
 
 distclean: clean
-	rm -f thesis.pdf
+	rm -f *.pdf
 
 biberclean:
 	rm -rf `biber --cache`
