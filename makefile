@@ -18,7 +18,13 @@ bib: compile
 thesis.pdf: bib
 	$(TEX) $(TFLAGS) $(DIR)/$(MAIN).tex
 
-spec.pdf: $(wildcard $(SDIR)/*.tex)
+scompile: $(wildcard $(SDIR)/*.tex)
+	$(TEX) $(TFLAGS) $(SDIR)/$(SMAIN).tex
+
+sbib: scompile
+	$(BIB) $(SMAIN)
+
+spec.pdf: sbib
 	$(TEX) $(TFLAGS) $(SDIR)/$(SMAIN).tex
 
 clean:
