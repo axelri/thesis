@@ -40,12 +40,12 @@ The problem we want to answer is ``Is Lumines NP-complete?''. More specifically,
 \section{Approach}
 Our approach to the problem is at first to simplify the game mechanics, for example we will probably consider the ``sweep mechanic'' of the game to be instantaneous instead of moving. We will also consider the offline version of the game, where every piece involved in a game sessions is known beforehand, rather than the actual online version, where the game pieces are generated probabilistically.
 
-We will then start to define the rules of the game in a rigorous manner. Once we have a mathematical system, we can proceed to formulate a goal of interest in that system. After this is done, we can try to prove that the goal is in fact NP-complete. This is done in the standard way; we will first show that the problem is in NP, by proving that an answer is verifiable in polynomic time, and then find and prove a suitably reduction from a known NP-complete problem to our problem at hand.
+We will then start to define the rules of the game in a rigorous manner. Once we have a mathematical system, we can proceed to formulate a decision problem of interest in that system. After this is done, we can try to prove that the problem is in fact NP-complete. This is done in the standard way; we will first try show that the problem is in NP, by proving that an answer is verifiable in polynomic time, and then try find a suitably reduction from a known NP-complete problem to our problem at hand.
 
-Lastly, if time permits, we can change the rules of our system to be more true to the actual game. For example could consider continuous sweeps, piece drop speed simulation and online versions. We will then try to prove our findings in this new system, which will hopefully tell us more about the original game.
+Lastly, if time permits, we can change the rules of our system to be more true to the actual game. For example we could consider continuous sweeps, piece drop speed simulation and online versions of the game. We will then try to prove our previous findings in this new system, which will hopefully tell us more about the original game.
 
 \section{References}
-So far we have identified three papers which we consider relevant for our project. One these is a description of Lumines strategies, the remaining two regards computational complexity in Tetris \cite{tetris} and Match-three puzzle games.
+So far we have identified three papers which we consider relevant for our project. One these is a description of Lumines strategies \cite{lumines}, the remaining two regards computational complexity in Tetris \cite{tetris} and Match-three puzzle games \cite{candy}.
 
 \section{Time plan}
 
