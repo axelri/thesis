@@ -1,20 +1,26 @@
 \documentclass[a4paper,10pt]{article}
 
 % engine-related
+\usepackage{etoolbox}
 \usepackage{ifxetex}
-\ifxetex
+\usepackage{ifluatex}
+
+\ifboolexpr { bool {luatex} or bool {xetex} } 
+{
     % modern packages, highly recommended
     \usepackage{fontspec}
     \defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
     \usepackage[backend=biber]{biblatex}
-\else
+} 
+{
     % legacy packages
     \usepackage[T1]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage{graphicx}
     \usepackage{epstopdf}
-    \usepackage[backend=bibtex8]{biblatex}
-\fi
+    \usepackage[backend=bibtex]{biblatex}
+}
+
 \addbibresource{references/bibliography.bib}
 
 \usepackage[inner=3cm,top=3cm,outer=3cm,bottom=3cm]{geometry}
