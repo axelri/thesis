@@ -1,4 +1,5 @@
-TEX = lualatex
+# TEX = lualatex
+TEX = pdflatex
 BIB = biber
 TFLAGS = -shell-escape -halt-on-error -file-line-error -interaction=nonstopmode
 

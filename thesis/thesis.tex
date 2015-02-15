@@ -1,8 +1,25 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage{fontspec}
-\defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
+
+% engine-related
+\usepackage{ifxetex}
+\ifxetex
+    % modern packages, highly recommended
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
+    \usepackage[backend=biber]{biblatex}
+\else
+    % legacy packages
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{graphicx}
+    \usepackage{epstopdf}
+    \usepackage[backend=bibtex8]{biblatex}
+\fi
+\addbibresource{references/bibliography.bib}
+
 \usepackage[inner=3cm,top=3cm,outer=3cm,bottom=3cm]{geometry}
 \usepackage[parfill]{parskip}
+
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -12,11 +29,10 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{mathtools}
+
 \usepackage[ireport, eng]{pkg/KTHEEtitlepage}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\usepackage[backend=biber]{biblatex}
-\addbibresource{references/bibliography.bib}
 
 \input{config/config.tex}
 
