@@ -1,25 +1,6 @@
 \documentclass[a4paper,10pt]{article}
 
-% engine-related
-\usepackage{etoolbox}
-\usepackage{ifxetex}
-\usepackage{ifluatex}
-
-\ifboolexpr { bool {luatex} or bool {xetex} } 
-{
-    % modern packages, highly recommended
-    \usepackage{fontspec}
-    \defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
-    \usepackage[backend=biber]{biblatex}
-} 
-{
-    % legacy packages
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage{graphicx}
-    \usepackage{epstopdf}
-    \usepackage[backend=bibtex]{biblatex}
-}
+\input{pkg/engine.tex}
 
 \addbibresource{references/bibliography.bib}
 

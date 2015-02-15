@@ -1,6 +1,8 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage{fontspec}
-\defaultfontfeatures{Mapping=tex-text,Ligatures=TeX}
+
+\input{pkg/engine.tex}
+\addbibresource{references/bibliography.bib}
+
 \usepackage[inner=3cm,top=3cm,outer=3cm,bottom=3cm]{geometry}
 \usepackage[parfill]{parskip}
 \usepackage{csquotes}
@@ -12,9 +14,7 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{mathtools}
-\usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{pgfgantt}
-\addbibresource{references/bibliography.bib}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
