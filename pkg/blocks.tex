@@ -1,0 +1,47 @@
+\newcommand{\lummonowhite}[2]
+{
+    \filldraw[fill=white, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=white, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=white, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=white, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
+
+\newcommand{\lummonoblack}[2]
+{
+    \filldraw[fill=gray, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=gray, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=gray, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=gray, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
+
+\newcommand{\lumlwhite}[2]
+{
+    \filldraw[fill=white, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=white, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=gray, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=white, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
+
+\newcommand{\lumh}[2]
+{
+    \filldraw[fill=white, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=gray, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=white, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=gray, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
+
+\newcommand{\lumlblack}[2]
+{
+    \filldraw[fill=gray, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=gray, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=white, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=gray, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
+
+\newcommand{\lumx}[2]
+{
+    \filldraw[fill=gray, draw=black] (#1,#2) rectangle (#1+1,#2+1);
+    \filldraw[fill=white, draw=black] (#1+1,#2) rectangle (#1+2,#2+1);
+    \filldraw[fill=white, draw=black] (#1,#2+1) rectangle (#1+1,#2+2);
+    \filldraw[fill=gray, draw=black] (#1+1,#2+1) rectangle (#1+2,#2+2);
+}
