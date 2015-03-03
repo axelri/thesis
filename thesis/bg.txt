@@ -1,8 +1,15 @@
+
+
+
+
+
 We have decided to look into the puzzle game Lumines from 2004. The goal of Lumines is to create as many 2x2 monochromatic squares as possible using 2x2 dichromatic squares.
 
-We find interest in analyzing this game because Lumines is to our knowledge not very researched when it comes to computation complexity. Similar puzzle games, such as Tetris, Bejeweled and Puyo
- Puyo has been more thoroughly examined in recent years, and it seems interesting to us how
-Lumines will compare
-. Knowing more about the computational complexity of the game can give us an understanding on what would be required when developing an A.I to the game.  We also believe that the result of this study can help us understand more about the nature of computational complexity. With results from this and other reports on computational complexity of similar problems, one might be able to generalize and find a correlation between the problem type and the computational complexity. 
+We find interest in analyzing this game because Lumines is to our knowledge not very researched when it comes to computation complexity. Similar puzzle games, such as Tetris, Bejeweled and Puyo Puyo has been more thoroughly examined in recent years, and it seems interesting to us how 
+Lumines will compare . Knowing more about the computational complexity of the game can give us an understanding on what would be required when developing an A.I to the game.  We also believe that the result of this study can help us understand more about the nature of computational complexity. With results from this and other reports on computational complexity of similar problems, one might be able to generalize and find a correlation between the problem type and the computational complexity. 
 
-Quite a few reports concerning computational complexity in games have been published in recent years. During our research we have read some of these reports to get a good understanding about what research has been made. One of the more interesting reports for our problem domain has been Tetris which is similar to Lumines in that it also consists of a grid-based gameboard and the main game mechanic is organizing sequences of pieces.
+Quite a few reports concerning computational complexity in games have been published in recent years. During our research we have read some of these reports to get a good understanding about what research has been made. One of the more interesting reports for our problem domain has been a report on the complexity of Tetris. In this report we learn that Tetris is NP-complete, both when optimizing and approximating. Tetris is similar to Lumines in that it also consists of a grid-based game board and the main game mechanic is organizing sequences of pieces.
+
+When showing NP-completeness in Tetris, 3-Partition instances were mapped to instances of a defined game board with sequences of pieces bound to the integers from the 3-Partition instances. Because Lumines has the similarities to Tetris explained above, this approach is interesting when considering a reduction to Lumines as well.
+
+
