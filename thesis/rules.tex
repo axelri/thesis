@@ -1,13 +1,13 @@
-\section{Rules of Lumines}
-Our formalization of Lumines roughly follows the methodology of \citeauthor{tetris} \cite{tetris}.
+\subsection{Rules of Lumines}
+Our formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}.
 
 \begin{description}[style=unboxed, leftmargin=0cm,labelsep=1em]
     \item[The gameboard] The \emph{gameboard} is a grid of $m$ rows and $n$ columns, indexed from bottom-to-top and left-to-right. The $\langle i,j \rangle$th \emph{gridsquare} is either \emph{unfilled}, \emph{black} or \emph{white}. When a gridsquare is either black or white, we call the gridsquare \emph{filled}. In a legal Lumines gameboard, no gridsquare is unfilled if some gridsquare above it is filled.
 
-    \item[Game pieces] The six Lumines pieces pictured in Figure~\ref{fig:pieces} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{piece state P} is 3-tuple, consisting of: 
+    \item[Game pieces] The six blocks pictured in Figure~\ref{fig:pieces} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{block state P} is 3-tuple, consisting of: 
 
     \begin{enumerate}
-        \item \emph{piece colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the game piece, clockwise form the lower-left corner. The six core pieces correspond to the following piece colors:
+        \item \emph{block colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the block, counted clockwise from the lower-left corner. The six blocks correspond to the following piece colors:
 
         \begin{description}
             \item[MW] $(W,W,W,W)$
@@ -18,17 +18,19 @@ Our formalization of Lumines roughly follows the methodology of \citeauthor{tetr
             \item[X] $(W,B,W,B)$
         \end{description}
 
-        \item a \emph{position} of the piece's lower-left corner on the gameboard, chosen from $\{1, \ldots, m\} \times \{1, \ldots, n\}$.
-        \item the value \emph{fixed} or \emph{unfixed}, ie whether the piece can be moved or rotated.
+        \item a \emph{position} of the block's lower-left corner on the gameboard, chosen from $\{1, \ldots, m\} \times \{1, \ldots, n\}$.
+        \item the value \emph{fixed} or \emph{unfixed}, ie whether the block can be moved or rotated.
     \end{enumerate}
 
-    \item[Rotating pieces] We define rotation of game pieces to be a transformation of the game piece's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
+    \item[Rotating pieces] We define rotation of blocks to be a transformation of the block's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
 
     \begin{enumerate}
-        \item $\frac{\pi}{2}$: $\sigma(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
-        \item $\pi$: $\sigma(\mathbf{c}) := (c_1\;c_3)(c_2\;c_4)$
-        \item $\frac{3 \pi}{2}$: $\sigma(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
+        \item $\frac{\pi}{2}$: $\sigma_{C}(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
+        \item $\pi$: $\sigma_{H}(\mathbf{c}) := (c_1\;c_3)(c_2\;c_4)$
+        \item $\frac{3 \pi}{2} = -\frac{\pi}{2}$: $\sigma_{CC}(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
     \end{enumerate}
+
+    We define a shorthand for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. Ie. the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$.
 
     \item[Playing the game] No moves are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following moves are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
 
