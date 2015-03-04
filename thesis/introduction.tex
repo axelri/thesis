@@ -91,12 +91,12 @@ If at any point the player forms a monochromatic $2 \times 2$ square, all cells 
         \begin{subfigure}[b]{.3\linewidth}
         \fbox{
         \begin{tikzpicture}
-            \draw (0,0) [draw=black, fill=red] rectangle (2,2);
-            \draw (1,1) [draw=black, fill=red] rectangle (3,3);
-            \draw (1,1) [draw=black, fill=red] rectangle (2,2);
             \cellb{0}{2}
             \cellb{0}{3}
             \cellb{2}{0}
+            \draw (0,0) [very thick, draw=black, fill=red] rectangle (2,2);
+            \draw (1,1) [very thick, draw=black, fill=red] rectangle (3,3);
+            \draw (1,1) [very thick, draw=black, fill=red] rectangle (2,2);
             \draw [draw=none] (0,0) rectangle (3, 8);
         \end{tikzpicture}
         }
