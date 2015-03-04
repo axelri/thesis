@@ -1,8 +1,16 @@
 \section{Background}
-\subsection{Existing studies}
+
+\subsection{NP and PSPACE}
+NP is the complexity class of all decision problems where a yes-instance can be verified in polynomial time. If it is possible to reduce all problems in NP to a certain problem, that problem is said to be NP-hard. A problem is referred to as a NP-complete problem if it is shown that it is both in NP and NP-hard. From this follows that if it is possible to reduce a NP-complete problem to some problem in NP using polynomial time, that problem is NP-complete as well.
+
+PSPACE is the complexity class of all decision problems that can be solved by a Turing machine in a polynomial amount of space. A problem is PSPACE-complete if it is in PSPACE and all problems in PSPACE can be reduced to the problem.
+\subsection{Subset Sum}
+
+
+\subsection{Existing Studies on Computational Complexity in Video Games}
 
 Quite a few reports concerning computational complexity in games have been published in recent years. During our research we have read some of these reports to get a good understanding what research has been made. These reports have covered games such as classical Nintendo games, 
-Lemmings, Minesweeper, Tetris and Bejeweled. These problems have been shown to be either PSPACE-hard or NP-hard and in most cases completeness in the respective complexity class has been proven.
+Lemmings, Minesweeper and Bejeweled. These problems have been shown to be either NP-hard or PSPACE-hard and in most cases completeness in the respective complexity class has been proven.
 One of the more interesting reports for our problem domain has been a report on the complexity of Tetris. In this report we learn that Tetris is NP-complete, both when optimizing and approximating. Tetris is similar to Lumines in that it also consists of a grid-based game board and the main game mechanic is organizing sequences of pieces.
 
 When showing NP-completeness in Tetris, 3-Partition instances were mapped to instances of a defined game board with sequences of pieces bound to the integers from the 3-Partition instances. Because Lumines has the similarities to Tetris explained above, this approach is interesting when considering a reduction to Lumines as well.
