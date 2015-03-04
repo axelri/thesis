@@ -22,11 +22,21 @@ Our formalization of Lumines roughly follows the methodology of \citeauthor{tetr
         \item the value \emph{fixed} or \emph{unfixed}, ie whether the piece can be moved or rotated.
     \end{enumerate}
 
-    \item[Rotating pieces] We define rotation of game pieces to be a transformation of the game piece's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The allowed rotations are:
+    \item[Rotating pieces] We define rotation of game pieces to be a transformation of the game piece's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
 
     \begin{enumerate}
         \item $\frac{\pi}{2}$: $\sigma(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
         \item $\pi$: $\sigma(\mathbf{c}) := (c_1\;c_3)(c_2\;c_4)$
         \item $\frac{3 \pi}{2}$: $\sigma(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
+    \end{enumerate}
+
+    \item[Playing the game] No moves are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following moves are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
+
+    \begin{enumerate}
+        \item A \emph{rotation}. The new piece state is $(\sigma(\mathbf{c}), (i,j), unfixed)$, where $\sigma$ is the corresponding permutation.
+        \item A \emph{slide to the left}. If the gridsquares $(i,j-1)$ and $(i+1, j-1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{slide to the right}. if the gridsquares $(i,j+1)$ and $(i+1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{drop} by one row, if the gridsquares $(i-1, j)$ and $(i-1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i-1, j), unfixed)$.
+        \item A \emph{fix}. If the gridsquare $(i-1, j)$ or $(i-1, j+1)$ are filled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j), fixed)$.
     \end{enumerate}
 \end{description}
