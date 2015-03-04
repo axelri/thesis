@@ -4,7 +4,7 @@ The video game Lumines was released in December 2004 in Japan for the PSP platfo
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.9\textwidth}{!}{
+    \resizebox{0.7\textwidth}{!}{
     \begin{tikzpicture}
         \lummonowhite{0}{0}
         \lummonoblack{3}{0}
@@ -124,7 +124,11 @@ If at any point the player forms a monochromatic $2 \times 2$ square, all cells 
 The version of Lumines found in the actual video games is played on a gameboard with 16 columns and 10 rows. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
 
 \subsection{Problem definition}
-As is often the case with computational complexity analysis, our thesis will consider the generalized version of the game, which is played on a gameboard with $n$ rows and $m$ columns. The thesis will seek to formalize and (to the necessary degree) simplify Lumines, and in this new system's computational complexity characteristics. 
+As is often the case with computational complexity analysis, our thesis will consider the generalized version of the game, which is played on a gameboard with $n$ rows and $m$ columns. Our thesis will seek to formalize and (to the necessary degree) simplify Lumines, and explore this new system's computational complexity characteristics. The thesis will focus on certain goals of the game by translating them into decision problems in this system.
+
+The methodology used is standard procedure in the domain of computational complexity. At first we examine how easy it is to verify a given solution to our problem, which will tell us if the problem lies in NP. We will then try to find a suitable known NP-complete problem and reduce it to our problem, which in turn will tell us if the problem is NP-hard. If both these conditions are satisfied, it follows from definition that the problem is NP-complete. A brief review of this terminology is provided in \textbf{todo:background}.
+
+While the sweep-line is undoubtedly an important characteristic of Lumines, we have decided to assume that all marked terrain is instantly cleared. We will also consider the offline version of the game, where the whole sequence of blocks is known beforehand, rather than the having the block types generated probabilistically. This is our two main simplifications, altough a more thorough is of course provided in the relevant parts of \textbf{todo:method}. The impact of these simplifications on how much the results can tell us about the actual games is considered in \textbf{todo:discussion}.
 
 \subsection{Problem statement}
 \begin{enumerate}
@@ -134,5 +138,4 @@ As is often the case with computational complexity analysis, our thesis will con
 
 \subsection{Motivation}
 
-We find interest in analyzing Lumines because it is to our knowledge not very researched when it comes to computational complexity. Tetris, a similar puzzle game has been more thoroughly examined in recent years, and it seems interesting to us how 
-Lumines will compare. Knowing more about the computational complexity of the game can give us an understanding on what would be required when developing an A.I to the game.  We also believe that the result of this study can help us understand more about the nature of computational complexity in video games. With results from this and other reports on computational complexity of similar problems, one might be able to generalize and find a correlation between the problem type and the computational complexity. 
+We find interest in analyzing Lumines because it is to our knowledge not very researched when it comes to computational complexity. Tetris, a similar puzzle game, has been more thoroughly examined in recent years, and it seems interesting to us how Lumines will compare. Knowing more about the computational complexity of the game can give us an understanding on what would be required for the development of an A.I, capable of solving the game. We also believe that the result of this study can help us understand more about the nature of computational complexity of video games in general, especially 2-dimensional grid games. With results from this and other reports on similar matters, one might be able to generalize and find a correlation between certain game characteristics and classes of computational complexity. 
