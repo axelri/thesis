@@ -1,10 +1,3 @@
-
-
-
-
-
-We have decided to look into the puzzle game Lumines from 2004. The goal of Lumines is to create as many 2x2 monochromatic squares as possible using 2x2 dichromatic squares.
-
 We find interest in analyzing this game because Lumines is to our knowledge not very researched when it comes to computation complexity. Similar puzzle games, such as Tetris, Bejeweled and Puyo Puyo has been more thoroughly examined in recent years, and it seems interesting to us how 
 Lumines will compare . Knowing more about the computational complexity of the game can give us an understanding on what would be required when developing an A.I to the game.  We also believe that the result of this study can help us understand more about the nature of computational complexity. With results from this and other reports on computational complexity of similar problems, one might be able to generalize and find a correlation between the problem type and the computational complexity. 
 
