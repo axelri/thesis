@@ -1,7 +1,7 @@
 \section{Background}
 
 \subsection{Reduction}
-A reduction is an algorithm used to solve one problem with another. A reduction of a decision problem is valid if each yes-instance gives a yes-instance and each no instance gives a no instance. If the reduction is to be made in polynomial time the problem that is solved must not be harder than the problem we reduce to. 
+A reduction is an algorithm used to solve one problem with another. A reduction of a decision problem is valid if each yes-instance gives a yes-instance and each no instance gives a no instance. If the reduction is to be made in polynomial time the problem that is solved must not be harder than the problem we reduce to.\cite{reduction}
 
 \subsection{NP and PSPACE}
 NP is the complexity class of all decision problems where a yes-instance can be verified in polynomial time. If it is possible to reduce all problems in NP to a certain problem, that problem is said to be NP-hard. A problem is referred to as a NP-complete problem if it is shown that it is both in NP and NP-hard. From this follows that if it is possible to reduce a NP-complete problem to some problem in NP using polynomial time, that problem is NP-complete as well.
@@ -22,8 +22,15 @@ The Subset Sum Problem plays a crucial role in our paper; it is the problem we h
 
 Several reports concerning computational complexity in video games have been published in recent years. During our research we have read some of these reports to get a good understanding what research has been made. These reports have covered games such as classical Nintendo games\cite{classic}, Lemmings\cite{lemmings}, Minesweeper\cite{minesweeper} and Bejeweled\cite{candy}. These problems have been shown to be either NP-hard or PSPACE-hard and in most cases completeness in the respective complexity class has been proven.
 
-One of the more interesting reports for our problem domain has been a report on the computational complexity of Tetris. In this report we learn that Tetris is NP-complete,  both when optimizing and approximating. Tetris is similar to Lumines in that it also consists of a grid-based game board and the main game mechanic is organizing sequences of pieces.
+One of the more interesting reports for our problem domain has been a report on the computational complexity of Tetris\cite{tetris}. In this report we learn that Tetris is NP-complete,  both when optimizing and approximating. Tetris is similar to Lumines in that it also consists of a grid-based game board and the main game mechanic is organizing sequences of pieces.
 
 When showing NP-completeness in Tetris, 3-Partition instances were mapped to instances of a defined game board with sequences of pieces bound to the integers from the 3-Partition instances. Because Lumines has the similarities to Tetris explained above, this approach is interesting when considering a reduction to Lumines as well.
 
+
+\subsection{Similarities between Tetris and Lumines}
+
 The existing research on Lumines that we have been able to find consists of a paper studying effective strategies. In this paper we learn that there exists strategies that can never lose, no matter what sequence of pieces are dropped. This is different to Tetris where losing can be inevitable if the computer is allowed to change the sequence according to how the player organizes the pieces. Another relevant difference the paper brings up is that in Lumines it is possible to create terrain that can not be cleared, while in Tetris a gameboard can always be cleared if the player is given an appropriate sequence of pieces.
+
+In the standard Lumines game, the gameboard is 16 columns and 10 rows while standard Tetris is 10 columns and 20 rows. In both games, when any block is fixed outside of the gameboard the player lose the game. While in Tetris a completed row is removed instantly, the marked cells in Lumines is not removed until the line has sweeped the marked area.
+
+While there might not be as many ways to build unique terrain in Lumines because of the fact the falling blocks can be seperated when the block is fixed, our theorem is that Lumines is NP-hard. Intuitively there seems to be many ways to combine the different blocks and it doesn't seem to exist an easy way to calculate the number of blocks that can be cleared by a given sequence. Since Tetris is NP-complete and has a couple of significant similarities to Lumines, we find even more reason to believe that this theorem is likely to be true and is worth investigating.
