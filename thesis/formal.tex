@@ -1,0 +1,43 @@
+\section{Formal definitions}
+Our formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}.
+
+\begin{description}[style=unboxed, leftmargin=0cm,labelsep=1em]
+    \item[The gameboard] The \emph{gameboard} is a grid of $m$ rows and $n$ columns, indexed from bottom-to-top and left-to-right. The $\langle i,j \rangle$th \emph{gridsquare} is either \emph{unfilled}, \emph{black} or \emph{white}. When a gridsquare is either black or white, we call the gridsquare \emph{filled}. In a legal Lumines gameboard, no gridsquare is unfilled if some gridsquare above it is filled.
+
+    \item[Game pieces] The six blocks pictured in \hyperref[fig:pieces]{figure \ref*{fig:pieces}} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{block state P} is 3-tuple, consisting of: 
+    \begin{enumerate}
+        \item \emph{block colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the block, counted clockwise from the lower-left corner. The six blocks correspond to the following piece colors:
+
+        \begin{description}
+            \item[MW] $(W,W,W,W)$
+            \item[MB] $(B,B,B,B)$
+            \item[LW] $(W,B,W,W)$
+            \item[LB] $(B,W,B,B)$
+            \item[H] $(W,W,B,B)$
+            \item[X] $(W,B,W,B)$
+        \end{description}
+
+        \item a \emph{position} of the block's lower-left corner on the gameboard, chosen from $\{1, \ldots, m\} \times \{1, \ldots, n\}$.
+        \item the value \emph{fixed} or \emph{unfixed}, ie whether the block can be moved or rotated.
+    \end{enumerate}
+
+    \item[Rotating pieces] We define rotation of blocks to be a transformation of the block's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
+
+    \begin{enumerate}
+        \item $\frac{\pi}{2}$: $\sigma_{C}(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
+        \item $\pi$: $\sigma_{H}(\mathbf{c}) := (c_1\;c_3)(c_2\;c_4)$
+        \item $\frac{3 \pi}{2} = -\frac{\pi}{2}$: $\sigma_{CC}(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
+    \end{enumerate}
+
+    We define a shorthand for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. Ie. the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$.
+
+    \item[Playing the game] No moves are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following moves are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
+
+    \begin{enumerate}
+        \item A \emph{rotation}. The new piece state is $(\sigma(\mathbf{c}), (i,j), unfixed)$, where $\sigma$ is the corresponding permutation.
+        \item A \emph{slide to the left}. If the gridsquares $(i,j-1)$ and $(i+1, j-1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{slide to the right}. if the gridsquares $(i,j+1)$ and $(i+1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{drop} by one row, if the gridsquares $(i-1, j)$ and $(i-1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i-1, j), unfixed)$.
+        \item A \emph{fix}. If the gridsquare $(i-1, j)$ or $(i-1, j+1)$ are filled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j), fixed)$.
+    \end{enumerate}
+\end{description}
