@@ -20,12 +20,19 @@ The Subset Sum Problem plays a crucial role in our paper; it is the problem we h
 
 \subsection{Previous studies}
 
-Several reports concerning computational complexity in video games have been published in recent years. During our research we have read some of these reports to get a good understanding what research has been made. These reports have covered games such as classical Nintendo games\cite{classic}, Lemmings\cite{lemmings}, Minesweeper\cite{minesweeper} and Bejeweled\cite{candy}. These problems have been shown to be either NP-hard or PSPACE-hard and in most cases completeness in the respective complexity class has been proven.
+Several reports concerning computational complexity in video games have been published in recent years. During our research we have read some of these reports to get a good understanding what research has been made. These reports have covered games such as classical Nintendo games \cite{classic}, Lemmings \cite{lemmings}, Minesweeper \cite{minesweeper}, Bejeweled \cite{candy} and Tetris. \cite{tetris}
 
-One of the more interesting reports for our problem domain has been a report on the computational complexity of Tetris\cite{tetris}. In this report we learn that Tetris is NP-complete,  both when optimizing and approximating. Tetris is similar to Lumines in that it also consists of a grid-based game board and the main game mechanic is organizing sequences of pieces.
+\subsubsection{Classical Nintendo Games}
 
-When showing NP-completeness in Tetris, 3-Partition instances were mapped to instances of a defined game board with sequences of pieces bound to the integers from the 3-Partition instances. Because Lumines has the similarities to Tetris explained above, this approach is interesting when considering a reduction to Lumines as well.
+In the paper on Classical Nintendo Games the computational complexity of games in the popular Nintendo series Legend of Zelda, Mario, Metroid, Donkey Kong and Pokémon are proven to be either NP- or PSPACE-hard. We learn that it is easy to understand that most games are members of PSPACE because their behaviour is a deterministic function of the player's controller input. The paper focus on the reachability problem in the aforementioned games, that is if it is possible to get from point A to point B on a generalized gameboard. Using the NP-complete problem 3-SAT the authors build a framework of ``gadgets'' to prove NP-hardness. For PSPACE-hardness a similar framework is used with the True Quantified Boolean Formula. The framework gives the authors a simple way to show NP- and PSPACE-hardness by building the gadgets as gameboards in the respective games. The authors also use previous studies on the Push-1 \cite{push1} and PushPush-1 \cite{pushpushk} to show NP-hardness, respectively PSPACE-hardness in some of the games implementing these games as puzzles. 
 
+\subsubsection{Lemmings}
+
+\subsubsection{Minesweeper}
+
+\subsubsection{Bejeweled}
+
+\subsubsection{Tetris}
 
 \subsection{Similarities between Tetris and Lumines}
 \label{subsub:sim}
