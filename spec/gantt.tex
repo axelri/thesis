@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{ganttchart}[
+    vgrid={draw=none, draw=none, draw=none, draw=none, draw=none, dotted}
+]{1}{24}
+  \gantttitle{February}{6} 
+  \gantttitle{March}{6} 
+  \gantttitle{April}{6} 
+  \gantttitle{May}{6} \\
+\ganttgroup{Research previous work}{1}{7} \\
+\ganttbar{Search for papers}{1}{3} \\
+\ganttbar{Skim papers}{2}{5} \\
+\ganttbar{In-depth reading}{4}{7} \\
+\ganttgroup{Write paper}{4}{20} \\
+\ganttbar{Formulate problem domain}{4}{13} \\
+\end{ganttchart}
+\end{tikzpicture}
