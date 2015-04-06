@@ -31,11 +31,13 @@ In the paper on Classical Nintendo Games the computational complexity of games i
 
 \subsubsection{Tetris}
 
-\subsection{Similarities between Tetris and Lumines}
+Tetris is a popular puzzle game where the player is given a sequence of tetrominoes to pack into a grid-based rectangular gameboard. If a row is completely filled it is cleared and all pieces above the cleared row is dropped by one row. Using the NP-complete 3-Partition problem the offline version of Tetris has been shown to be NP-complete considering specific goals, for example maximizing the number of cleared rows. The reduction is done by building a Tetris gameboard from instances of the 3-Partition problem. A specific sequence of pieces are defined for each number in the 3-Partition problem. The authors show that for every yes-instance of 3-Partition there exists a trajectory given the sequences which clear the entire gameboard without triggering a loss. An important note is that the proof does not use all of the tetrominoes existing in the game and therefor is slightly simplified. In the same paper, it is also shown that Tetris is highly inapproximable. 
+
+\subsection{Lumines and its similarities to Tetris}
 \label{subsub:sim}
 
 The existing research on Lumines largely focus on effective strategies. One paper states that there exists strategies that can never lose, no matter what sequence of pieces are dropped \cite{lumines}. This is different to Tetris where losing can be inevitable if the computer is allowed to change the sequence according to how the player organizes the pieces \textbf{todo: source}. Another relevant difference the brought up in prior research is that in Lumines it is possible to create terrain that can not be cleared, while in Tetris a gameboard can always be cleared if the player is given an appropriate sequence of pieces.
 
 The standard Lumines game is played on a $10 \times 16$-gameboard, while standard Tetris is played on a $20 \times 10$-gameboard. In both games, when any block is fixed outside of the gameboard the player loses the game. While in Tetris a completed row is removed instantly, the marked cells in Lumines is not removed until the sweep-line has scanned the area.
 
-The fact that falling blocks may seperate after being fixed in Lumines means that there aren't as many ways to build unique terrain as in Tetris. Nevertheless, some significant similarities exist between the two games. This makes existing Tetris research a valuable resource for this report.
+The fact that falling blocks may seperate after being fixed in Lumines means that there aren't as many ways to build unique terrain as in Tetris. Nevertheless, some significant similarities exist between the two games making the existing research on Tetris a valuable asset when considering the complexity of Lumines.
