@@ -18,3 +18,8 @@
     \usepackage{epstopdf}
     \usepackage[backend=bibtex, style=numeric]{biblatex}
 }
+
+\ifxetex
+    \newcount\pdflastximagepages
+    \def\pdfximage#1{\pdflastximagepages=\XeTeXpdfpagecount"#1"\relax}
+\fi

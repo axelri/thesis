@@ -4,6 +4,7 @@
 *.blg
 *.bcf
 *.bbl
+*.out
 thesis.pdf
 *blx.bib
 .DS_STORE
