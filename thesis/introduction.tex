@@ -1,132 +1,11 @@
 \section{Introduction}
 
-The video game Lumines was released in December 2004 in Japan for the PSP platform. The game was a major success for the developer Q Entertainment, and has since its original release been followed with a couple of sequels \cite{wiki:lumines}.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-    \begin{tikzpicture}
-        \lummonowhite{0}{0}
-        \lummonoblack{3}{0}
-        \lumlwhite{6}{0}
-        \lumlblack{9}{0}
-        \lumh{12}{0}
-        \lumx{15}{0}
-    \end{tikzpicture}
-    }
-    \caption{The six pieces of lumines: M\{W,B\}, L\{W,B\}, H and X}
-    \label{fig:pieces}
-\end{figure}
-
-Lumines is a two-dimensional grid game, in which a sequence of $2 \times 2$ dichromatic \textit{blocks} falls, and the user rotates and shifts the block before its bottom \text{cells} reaches other cells, \textit{terrain}, in the gameboard. When the block reach existing terrain, it is no longer possible to shift or rotate the block. If both bottom cells of the block is supported by existing terrain, the block stays put on that terrain. Otherwise, the half of the block that is not supported by terrain will fall down until it is. The player is then presented with the next block.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-    \begin{subfigure}[b]{0.45\linewidth}
-        \resizebox{\linewidth}{!}{
-        \begin{tikzpicture}
-            \lumx{0}{4}
-            \draw[thick, ->] (1,3.5) -- (1, 2.5);
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        \hspace{0.25cm}
-        \begin{tikzpicture}
-            \lumx{0}{2}
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        }
-        \caption{}
-    \end{subfigure}
-    \hspace{0.05\linewidth}
-    \begin{subfigure}[b]{0.45\linewidth}
-        \resizebox{\linewidth}{!}{
-        \begin{tikzpicture}
-            \lumx{1}{4}
-            \draw[thick, ->] (2,3.5) -- (2, 2.5);
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        \hspace{0.25cm}
-        \begin{tikzpicture}
-            \lumx{0}{0}
-            \cellb{1}{2}
-            \cellw{1}{3}
-            \cellw{2}{0}
-            \cellb{2}{1}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        }
-        \caption{}
-    \end{subfigure}
-    }
-    \caption{Block behavior with and without supporting terrain}
-\end{figure}
-
-If at any point the player forms a monochromatic $2 \times 2$ square, all cells belonging to that square is \textit{marked}. Note that these squares may overlap, for example all cells within a monochromatic $2 \times 3$ rectangle is marked, since it consists of overlapping $2 \times 2$ monochromatic squares. At a regular pace a vertical \textit{sweep-line} scans the gameboard and removes all marked cells.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellw{0}{0}
-            \cellw{1}{0}
-            \cellb{2}{0}
-            \cellw{0}{1}
-            \cellw{2}{1}
-            \cellw{2}{2}
-            \cellb{0}{5}
-            \cellw{1}{5}
-            \cellb{0}{6}
-            \cellw{1}{6}
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellw{0}{0}
-            \cellw{1}{0}
-            \cellb{2}{0}
-            \cellw{0}{1}
-            \cellw{2}{1}
-            \cellw{2}{2}
-            \cellb{0}{2}
-            \cellw{1}{1}
-            \cellb{0}{3}
-            \cellw{1}{2}
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellb{0}{2}
-            \cellb{0}{3}
-            \cellb{2}{0}
-            \draw (0,0) [very thick, draw=black, fill=red] rectangle (2,2);
-            \draw (1,1) [very thick, draw=black, fill=red] rectangle (3,3);
-            \draw (1,1) [very thick, draw=black, fill=red] rectangle (2,2);
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-    }
-    \caption{Marking of $2 \times 2$ monochromatic squares (from \cite{lumines})}
-\end{figure}
-
-The version of Lumines found in actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
+In this report a proof of the game Lumines's NP-completeness is presented. First the rules of the game are formally defined. Using these definitions the NP-complete subset sum problem is reduced to a Lumines gameboard with a defined sequence of blocks. A proof is presented showing that the only way to clear a specific number of blocks in the given Lumines gameboard is if the subset sum instance is a "yes"-instance.
 
 \subsection{Problem statement}
-This report considers the generalized version of the game, which is played on an $n \times m$-gameboard. The authors seeks to formalize and  simplify Lumines, and explore this new system's computational complexity characteristics. Certain goals of the game are considered by translating them into decision problems in this system.
+This report considers the generalized version of the game, which is played on an $n \times m$-gameboard. The authors seek to formalize and  simplify Lumines, and explore this new system's computational complexity characteristics. Certain goals of the game are considered by translating them into decision problems in this system.
 
-While the sweep-line is a core characteristic of Lumines, this report considers all marked terrain as instantly cleared. Furthermore the whole sequence of blocks is considered to be known beforehand. This will be referred to as the \textit{offline} version of the game, in contrast to the \textit{online} version, where the blocks are generated probabilistically. These are the two main simplifications, although a more thorough discussion is provided in \textbf{todo:method}. The impact of these simplifications on the validity of the results is considered in \textbf{todo:discussion}.
+While the sweep-line is a core characteristic of Lumines, this report considers all marked terrain as instantly cleared. Furthermore the whole sequence of blocks is considered to be known beforehand. This will be referred to as the \textit{offline} version of the game, in contrast to the \textit{online} version, where the blocks are generated probabilistically. These are the two main simplifications, although a more thorough discussion is provided in \nameref{method}. The impact of these simplifications on the validity of the results is considered in \nameref{discussion}.
 
 The main Lumines goals this paper examines are:
 \begin{itemize}
@@ -136,4 +15,4 @@ The main Lumines goals this paper examines are:
 
 \subsection{Motivation}
 
-Lumines is a game of interest because to the authors' knowledge it's not well researched from the perspective of computational complexity. Several similar games has been more thoroughly researched in recent years and comparing Lumines to these findings might yield interesting results. New findings on the computational complexity of Lumines may aid in the development of video game artificial intelligence. Our understanding of computational complexity in generic 2-dimensional grid games in may also benefit from this research. Combining results from this report with results from previous similar research might make it possible to find a correlation between certain game characteristics and classes of computational complexity.
+Lumines is a game of interest because to the authors' knowledge it's not well researched from the perspective of computational complexity. Several similar games has been more thoroughly researched in recent years and comparing Lumines to these findings might yield interesting results. New findings on the computational complexity of Lumines may aid in the development of video game artificial intelligence. Our understanding of computational complexity in generic 2-dimensional grid games may also benefit from this research. Combining results from this report with results from previous similar research might make it possible to find a correlation between certain game characteristics and classes of computational complexity.

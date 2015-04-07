@@ -1,5 +1,129 @@
 \section{Background}
 
+
+\subsection{Lumines}
+The video game Lumines was released in December 2004 in Japan for the PSP platform. The game was a major success for the developer Q Entertainment, and has since its original release been followed with a couple of sequels \cite{wiki:lumines}.
+\begin{figure}[H]
+    \centering
+    \resizebox{0.7\textwidth}{!}{
+    \begin{tikzpicture}
+        \lummonowhite{0}{0}
+        \lummonoblack{3}{0}
+        \lumlwhite{6}{0}
+        \lumlblack{9}{0}
+        \lumh{12}{0}
+        \lumx{15}{0}
+    \end{tikzpicture}
+    }
+    \caption{The six pieces of lumines: M\{W,B\}, L\{W,B\}, H and X}
+    \label{fig:pieces}
+\end{figure}
+
+Lumines is a two-dimensional grid game, in which a sequence of $2 \times 2$ dichromatic \textit{blocks} falls, and the user rotates and shifts the block before its bottom \text{cells} reaches other cells, \textit{terrain}, in the gameboard. When the block reach existing terrain, it is no longer possible to shift or rotate the block. If both bottom cells of the block is supported by existing terrain, the block stays put on that terrain. Otherwise, the half of the block that is not supported by terrain will fall down until it is. The player is then presented with the next block.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.7\textwidth}{!}{
+    \begin{subfigure}[b]{0.45\linewidth}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \lumx{0}{4}
+            \draw[thick, ->] (1,3.5) -- (1, 2.5);
+            \lumx{0}{0}
+            \draw [draw=none] rectangle (3, 7);
+        \end{tikzpicture}
+        \hspace{0.25cm}
+        \begin{tikzpicture}
+            \lumx{0}{2}
+            \lumx{0}{0}
+            \draw [draw=none] rectangle (3, 7);
+        \end{tikzpicture}
+        }
+        \caption{}
+    \end{subfigure}
+    \hspace{0.05\linewidth}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}
+            \lumx{1}{4}
+            \draw[thick, ->] (2,3.5) -- (2, 2.5);
+            \lumx{0}{0}
+            \draw [draw=none] rectangle (3, 7);
+        \end{tikzpicture}
+        \hspace{0.25cm}
+        \begin{tikzpicture}
+            \lumx{0}{0}
+            \cellb{1}{2}
+            \cellw{1}{3}
+            \cellw{2}{0}
+            \cellb{2}{1}
+            \draw [draw=none] rectangle (3, 7);
+        \end{tikzpicture}
+        }
+        \caption{}
+    \end{subfigure}
+    }
+    \caption{Block behavior with and without supporting terrain}
+\end{figure}
+
+If at any point the player forms a monochromatic $2 \times 2$ square, all cells belonging to that square is \textit{marked}. Note that these squares may overlap, for example all cells within a monochromatic $2 \times 3$ rectangle is marked, since it consists of overlapping $2 \times 2$ monochromatic squares. At a regular pace a vertical \textit{sweep-line} scans the gameboard and removes all marked cells.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.7\textwidth}{!}{
+        \begin{subfigure}[b]{.3\linewidth}
+        \fbox{
+        \begin{tikzpicture}
+            \cellw{0}{0}
+            \cellw{1}{0}
+            \cellb{2}{0}
+            \cellw{0}{1}
+            \cellw{2}{1}
+            \cellw{2}{2}
+            \cellb{0}{5}
+            \cellw{1}{5}
+            \cellb{0}{6}
+            \cellw{1}{6}
+            \draw [draw=none] (0,0) rectangle (3, 8);
+        \end{tikzpicture}
+        }
+        \end{subfigure}
+        \begin{subfigure}[b]{.3\linewidth}
+        \fbox{
+        \begin{tikzpicture}
+            \cellw{0}{0}
+            \cellw{1}{0}
+            \cellb{2}{0}
+            \cellw{0}{1}
+            \cellw{2}{1}
+            \cellw{2}{2}
+            \cellb{0}{2}
+            \cellw{1}{1}
+            \cellb{0}{3}
+            \cellw{1}{2}
+            \draw [draw=none] (0,0) rectangle (3, 8);
+        \end{tikzpicture}
+        }
+        \end{subfigure}
+        \begin{subfigure}[b]{.3\linewidth}
+        \fbox{
+        \begin{tikzpicture}
+            \cellb{0}{2}
+            \cellb{0}{3}
+            \cellb{2}{0}
+            \draw (0,0) [very thick, draw=black, fill=red] rectangle (2,2);
+            \draw (1,1) [very thick, draw=black, fill=red] rectangle (3,3);
+            \draw (1,1) [very thick, draw=black, fill=red] rectangle (2,2);
+            \draw [draw=none] (0,0) rectangle (3, 8);
+        \end{tikzpicture}
+        }
+        \end{subfigure}
+    }
+    \caption{Marking of $2 \times 2$ monochromatic squares (from \cite{lumines})}
+\end{figure}
+
+The version of Lumines found in actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
+
 \subsection{Reduction}
 A reduction is an algorithm used to solve one problem with another. A reduction of a decision problem is valid if each yes-instance gives a yes-instance and each no instance gives a no instance. If the reduction is to be made in polynomial time the problem that is solved must not be harder than the problem we reduce to.\cite{reduction}
 
@@ -36,7 +160,7 @@ Candy Crush and Bejeweled are both popular puzzle games with the same concept. T
 
 \subsubsection{Tetris}
 
-Tetris is a popular puzzle game where the player is given a sequence of tetrominoes to pack into a grid-based rectangular gameboard. If a row is completely filled it is cleared and all pieces above the cleared row is dropped by one row. Using the NP-complete 3-Partition problem the offline version of Tetris has been shown to be NP-complete considering specific goals, for example maximizing the number of cleared rows. The reduction is done by building a Tetris gameboard from instances of the 3-Partition problem. A specific sequence of pieces are defined for each number in the 3-Partition problem. The authors show that for every yes-instance of 3-Partition there exists a trajectory given the sequences which clear the entire gameboard without triggering a loss. An important note is that the proof does not use all of the tetrominoes existing in the game and therefor is slightly simplified. In the same paper, it is also shown that Tetris is highly inapproximable. 
+Tetris is a popular puzzle game where the player is given a sequence of tetrominoes to pack into a grid-based rectangular gameboard. If a row is completely filled it is cleared and all pieces above the cleared row is dropped by one row. Using the NP-complete 3-Partition problem the offline version of Tetris has been shown to be NP-complete considering specific goals, for example maximizing the number of cleared rows. The reduction is done by building a Tetris gameboard from instances of the 3-Partition problem. A specific sequence of pieces are defined for each number in the 3-Partition instance. The authors show that for every yes-instance of 3-Partition there exists a trajectory given the sequences which clear the entire gameboard without triggering a loss. An important note is that the reduction does not use all of the tetrominoes existing in the game and therefore is slightly simplified. In the same paper, it is also shown that Tetris is highly inapproximable. 
 
 \subsection{Lumines and its similarities to Tetris}
 \label{subsub:sim}
