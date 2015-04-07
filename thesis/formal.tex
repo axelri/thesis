@@ -1,10 +1,10 @@
-\section{Formal definitions}
+\subsection{Formal definitions}
 Our formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}.
 
 \begin{description}[style=unboxed, leftmargin=0cm,labelsep=1em]
-    \item[The gameboard] The \emph{gameboard} is a grid of $m$ rows and $n$ columns, indexed from bottom-to-top and left-to-right. The $\langle i,j \rangle$th \emph{gridsquare} is either \emph{unfilled}, \emph{black} or \emph{white}. When a gridsquare is either black or white, we call the gridsquare \emph{filled}. In a legal Lumines gameboard, no gridsquare is unfilled if some gridsquare above it is filled.
+    \item[The gameboard] The \emph{gameboard} is a grid of $m$ rows and $n$ columns, indexed from bottom-to-top and left-to-right. The $\langle i,j \rangle$th \emph{cell} is either \emph{unfilled}, \emph{black} or \emph{white}. When a cell is either black or white, we call the cell \emph{filled}. In a legal Lumines gameboard, no cell is unfilled if some cell above it is filled.
 
-    \item[Game pieces] The six blocks pictured in \hyperref[fig:pieces]{figure \ref*{fig:pieces}} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{block state P} is 3-tuple, consisting of: 
+    \item[Game blocks] The six blocks pictured in \hyperref[fig:pieces]{figure \ref*{fig:pieces}} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{block state P} is 3-tuple, consisting of: 
     \begin{enumerate}
         \item \emph{block colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the block, counted clockwise from the lower-left corner. The six blocks correspond to the following piece colors:
 
@@ -21,7 +21,9 @@ Our formalization of Lumines roughly follows the methodology of \citeauthor{tetr
         \item the value \emph{fixed} or \emph{unfixed}, ie whether the block can be moved or rotated.
     \end{enumerate}
 
-    \item[Rotating pieces] We define rotation of blocks to be a transformation of the block's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
+    In the \textit{initial block state}, the block is in its base orientation unless noted. The initial position of any block is the $(m-1, \lfloor n/2 \rfloor)$.
+
+    \item[Rotating blocks] We define rotation of blocks to be a transformation of the block's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
 
     \begin{enumerate}
         \item $\frac{\pi}{2}$: $\sigma_{C}(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
@@ -31,13 +33,31 @@ Our formalization of Lumines roughly follows the methodology of \citeauthor{tetr
 
     We define a shorthand for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. Ie. the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$.
 
-    \item[Playing the game] No moves are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following moves are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
+    \item[Game operations] No operations are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following operations are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
 
     \begin{enumerate}
-        \item A \emph{rotation}. The new piece state is $(\sigma(\mathbf{c}), (i,j), unfixed)$, where $\sigma$ is the corresponding permutation.
-        \item A \emph{slide to the left}. If the gridsquares $(i,j-1)$ and $(i+1, j-1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
-        \item A \emph{slide to the right}. if the gridsquares $(i,j+1)$ and $(i+1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j-1), unfixed)$.
-        \item A \emph{drop} by one row, if the gridsquares $(i-1, j)$ and $(i-1, j+1)$ are unfilled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i-1, j), unfixed)$.
-        \item A \emph{fix}. If the gridsquare $(i-1, j)$ or $(i-1, j+1)$ are filled in $B$ the move is legal. The new piece state is $(\mathbf{c}, (i, j), fixed)$.
+        \item A \emph{rotation}. The new block state is $(\sigma(\mathbf{c}), (i,j), unfixed)$, where $\sigma$ is the corresponding permutation.
+        \item A \emph{slide to the left}. If the cells $(i,j-1)$ and $(i+1, j-1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{slide to the right}. if the cells $(i,j+1)$ and $(i+1, j+1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j-1), unfixed)$.
+        \item A \emph{drop} by one row, if the cells $(i-1, j)$ and $(i-1, j+1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i-1, j), unfixed)$.
+        \item A \emph{fix}. If the cells $(i-1, j)$ or $(i-1, j+1)$ are filled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j), fixed)$.
     \end{enumerate}
-\end{description}
+
+\item[Playing the game] A \textit{trajectory} $\tau$ of a block $P$ is a sequence of (legal) game moves starting from the initial block state and ending with a fix move. The application of a trajectory on a block $P$ in a gameboard $B$ renders a new gameboard $B'$ according to the following rules:
+
+    \begin{enumerate}
+            \item $B'$ is initially $B$ with the cells of block $P$ filled.
+            \item If the block is fixed, any column of the block which is not directly above a filled cell will continue to drop until it reaches either a filled cell or the bottom row. $B'$ is the result of this fix operation.
+            \item If the block is fixed and the block state is $(m-1, j)$, any $j \in \{1, \ldots, n\}$, a \textit{game over} is triggered.
+            \item If any filled cell $(i,j)$ in $B'$ and its surrounding cells $(i+1,j+1)$, $(i, j+1)$ and $(i+1, j)$ are the same color, these cells are marked and cleared instantly. Any filled cells in $B'$ not directly above other filled cells or the bottom row now drops until they are. This stage is repeated until a further step would not result in any changes on the gameboard. $B'$ is now the results of these steps.
+    \end{enumerate}
+
+    A \textit{game} $(B_0, P_1, \ldots, P_p)$ is defined as an initial gameboard and a sequence of blocks to be placed by the player. A \textit{trajectory sequence} $\phi$ is a sequence $(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$ which for each $i$ the trajectory $\tau_i$ applied to the game block $P_i$ on the gameboard $B_{i-1}$ results in gameboard $B_i$. If $\phi$ contains any trajectory $\tau_q$ which triggers a game over, $\phi$ naturally terminates at $B_q$ instead of $B_p$.
+    \end{description}
+
+\subsubsection{The k-cleared-cells problem}
+The main Lumines goal this paper is concerned with is the problem of maximizing the amount of cleared cells in a particular Lumines game. This problem is formulated as a decision problem in the formal system as follows:
+
+\begin{quote}
+    \textbf{The k-cleared-cells problem}: Given a Lumines game $G$ and a goal $C \in \mathbb{N}$, does there exist a trajectory sequence $\phi$ such that when $\phi$ is applied to $G$, at least $C$ cells are cleared in total?
+\end{quote}
