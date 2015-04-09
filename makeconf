@@ -1,2 +1,2 @@
-TEX = lualatex
-BIB = biber
+TEX = pdflatex
+BIB = bibtex
