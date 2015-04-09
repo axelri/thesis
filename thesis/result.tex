@@ -1,4 +1,33 @@
 \section{Result}
+The following lemma will be of use later in the proof:\\
+
+\begin{lem}
+\label{lem:legality}
+The legality of a trajectory sequence $\phi=(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$ in any game $G=(B_0, P_1, \ldots, P_p)$ is a checkable objective function.
+\end{lem}
+
+\begin{proof}
+For every trajectory $\tau$ in $\phi$, deciding whether any operation is legal is a check in constant time.
+
+After a fix operation has been made, the gameboard enters a loop and changes according to the clear semantics. This loop can run at most $|B_0| / 4$ times, since at least 4 cells has to be cleared each iteration, and no change can occur if there aren't any cells left to clear. Each iteration requires checking at most $4|B|$ cells; each cell in the gameboard and three neighbors. Thus the time to compute the new gameboard for each $\tau$ in $\phi$ is $\in O(|B_0|^2)$.
+
+Checking that applying $\tau_i$ to $P_i$ in $B_{i-1}$ yields $B_i$ requires $|B_0|$ comparisons. 
+
+Thus we have that checking the validity of $\phi$ in $G$ can be done in $O(|\phi| \cdot |B_0|^2) = \text{poly}(|G|, |\phi|)$. 
+\end{proof}
+
 \subsection{Is k-cleared-cells in NP?}
 
-Given a Lumines game $G = (B_0, P_1, \ldots, P_p)$, a goal $C$ and a solution $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$, is this solution $\phi$ verifiable in polynomial time?
+Given a Lumines game $G = (B_0, P_1, \ldots, P_p)$, a goal $C$ and a solution $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$, is this solution $\phi$ verifiable in polynomial time? In order to prove this we begin by proving the following modified theorem from \cite{tetris}: \\
+
+\begin{thm}
+    For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in NP$
+\end{thm}
+
+\begin{proof}
+We are given a Lumines game $G = (B_0, P_1, \ldots, P_p)$ and a acyclic trajectory sequence $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Let $B_0$ be $m \times n$ gameboard.
+
+Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 < |B_0|$ states, unfixed once in each possible position and fixed in one final position. 
+
+Thus in order to.
+\end{proof}

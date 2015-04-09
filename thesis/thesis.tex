@@ -10,6 +10,7 @@
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{verbatim}
 \usepackage{algpseudocode}
@@ -30,6 +31,13 @@
 
 \input{config/config.tex}
 \input{pkg/blocks.tex}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{lem}[thm]{Lemma} % same for example numbers
 
 \begin{document}
 \ititle{\ctitle}
