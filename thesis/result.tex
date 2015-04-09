@@ -1,15 +1,4 @@
 \section{Result}
-\textit{This is a draft of the proof that Lumines is NP-complete. It is not yet properly formatted. This particular part regards prooving that Lumines is NP-hard by reducing the Subset Sum problem to our Lumines problem}
+\subsection{Is k-cleared-cells in NP?}
 
-\newpage
-
-\def\filename{resource/proof-2.pdf}
-\def\scale{0.7}
-\pdfximage{\filename}
-
-\multido{\i=1+1}{\the\pdflastximagepages}{%
-    \begin{center}
-    \makebox[\textwidth]{\includegraphics[page=\i,width=\paperwidth]{\filename}}
-    \end{center}
-    \newpage
-}
+Given a Lumines game $G = (B_0, P_1, \ldots, P_p)$, a goal $C$ and a solution $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$, is this solution $\phi$ verifiable in polynomial time?

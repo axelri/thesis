@@ -1,16 +1,16 @@
 \section{Method}
 \label{method}
 
-The methodology used is standard procedure in the domain of computational complexity. A brief review of this terminology is provided in~\ref{sec:background}.
+The methodology used is standard procedure in the domain of computational complexity. A brief review of this terminology is provided in~\autoref{sec:background}.
 The process is as follows:
 
 \begin{enumerate}
 \item It is proven that given a solution of a k-cleared-cells instance, the solution is verifiable in polynomial time. By definition this will prove that k-cleared-cells is in NP.
-\item A previously known NP-complete problem is reduced to k-cleared-cells. Since a reduced problem can be no harder (in a computational sense) than the problem it is reduced to, this will prove k-cleared-cells to be NP-hard.
-\item If k-cleard-cells is in NP and is NP-hard, it follows from definition that the k-cleared-cells is NP-complete.
+\item A previously known NP-complete problem is reduced to k-cleared-cells. Since a reduced problem can be no harder (in a computational sense) than the problem it is reduced to, it follows that k-cleared-cells is NP-hard.
+\item If k-cleared-cells is in NP and is NP-hard, it follows from definition that the k-cleared-cells is NP-complete.
 \end{enumerate}
 
 \subsection{Finding a reduction}
-As mentioned in~\ref{subsub:sim} there exists many similarities between Lumines and the more thoroughly researched video game Tetris. This fact suggested that is was a good idea to draw inspiration from papers concerning the computational complexity of Tetris. In one such paper by \citeauthor{tetris}, the authors present a reduction from \textit{3-Partition} to the problem of how many rows can be cleared using some sequence of Tetris pieces \cite{tetris}. Although a proof of similar completeness is considered to be out of the scope of this report, the notion of forcing game pieces to be placed in certain positions by creating constraints has showed valuable for the proof presented in this report.
+As mentioned in~\autoref{subsub:sim} there exists many similarities between Lumines and the more thoroughly researched video game Tetris. This fact suggested that is was a good idea to draw inspiration from papers concerning the computational complexity of Tetris. In one such paper by \citeauthor{tetris}, the authors present a reduction from \textit{3-Partition} to the problem of how many rows can be cleared using some sequence of Tetris pieces \cite{tetris}. Although a proof of similar completeness is considered to be out of the scope of this report, the notion of forcing game pieces to be placed in certain positions by creating constraints has showed valuable for the proof presented in this report.
 
 NP-hard problems priorly encountered in literature and courses were first examined. Problems were considered on how good they could they could relate to spatial characteristics of Lumines. Finally the \textit{Subset sum} problem was chosen as a potential problem to reduce from, on the grounds that it was well understood by the authors and that mappings could be made intuitively from the problem to some characteristics of Lumines. For example it seemed plausible that a set of elements in a \textit{Subset sum} instance could be mapped to a set of Lumines blocks of the same kind in a sequence. The characteristic of summing elements in a \textit{Subset sum} instance also seemed like a good match for the stacking characteristic of Lumines gameplay.

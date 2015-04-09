@@ -63,3 +63,10 @@ The main Lumines goal this paper is concerned with is the problem of maximizing 
 \begin{quote}
     \textbf{The (offline, no-rotation) k-cleared-cells problem}: Given a Lumines game $G$ and a goal $C \in \mathbb{N}$, does there exist a trajectory sequence $\phi$ such that when $\phi$ is applied to $G$, at least $C$ cells are cleared in total?
 \end{quote}
+
+\subsubsection{Acyclic goals}
+The notion of acyclic goals is presented in \cite{tetris}. This definition will aid in proving k-cleared-cells to be in NP. It is used in a similar manner in the original paper.
+
+\begin{quote}
+    We say that an objective function $\Phi$ is \textit{acyclic} when, for all games $G$, if there is a trajectory sequence $\phi$ so that $\Phi(G, \phi)$ holds, then there is a trajectory sequence $\phi'$ so that $\Phi(G, \phi')$ holds and there are no repeated piece states in $\phi'$.
+\end{quote}
