@@ -1,12 +1,12 @@
 \subsection{Formal definitions}
-Our formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}.
+This formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}. Please note that the formalization corresponds to the simplified model of Lumines considered in this report, rather than the actual video game. With this in mind, in this section `Lumines' should be read as `Lumines with the constraints and modifications this report assumes'.
 
 \begin{description}[style=unboxed, leftmargin=0cm,labelsep=1em]
     \item[The gameboard] The \emph{gameboard} is a grid of $m$ rows and $n$ columns, indexed from bottom-to-top and left-to-right. The $\langle i,j \rangle$th \emph{cell} is either \emph{unfilled}, \emph{black} or \emph{white}. When a cell is either black or white, we call the cell \emph{filled}. In a legal Lumines gameboard, no cell is unfilled if some cell above it is filled.
 
-    \item[Game blocks] The six blocks pictured in \hyperref[fig:pieces]{figure \ref*{fig:pieces}} are the exact six permutations one can create by coloring the four corners of a square with two colors. A \emph{block state P} is 3-tuple, consisting of: 
+    \item[Game blocks] In Lumines the player can only manipulate $2 \times 2$ squares of cells called \textit{blocks}. The attributes of a block in play is defined as a \emph{block state P}.It is 3-tuple, consisting of: 
     \begin{enumerate}
-        \item \emph{block colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the block, counted clockwise from the lower-left corner. The six blocks correspond to the following piece colors:
+        \item \emph{block colors}, a 4-tuple $\in \{B,W\}^4$ corresponding to the corner colors of the block, counted clockwise from the lower-left corner. The six blocks core blocks pictured in \hyperref[fig:pieces]{figure \ref*{fig:pieces}} correspond to the following piece colors:
 
         \begin{description}
             \item[MW] $(W,W,W,W)$
@@ -17,30 +17,30 @@ Our formalization of Lumines roughly follows the methodology of \citeauthor{tetr
             \item[X] $(W,B,W,B)$
         \end{description}
 
-        \item a \emph{position} of the block's lower-left corner on the gameboard, chosen from $\{1, \ldots, m\} \times \{1, \ldots, n\}$.
-        \item the value \emph{fixed} or \emph{unfixed}, ie whether the block can be moved or rotated.
+        \item a \emph{position} of the block's lower-left corner on the gameboard, chosen from $\{1, \ldots, m-1\} \times \{1, \ldots, n-1\}$.
+        \item the value \emph{fixed} or \emph{unfixed}.
     \end{enumerate}
 
-    In the \textit{initial block state}, the block is in its base orientation unless noted. The initial position of any block is the $(m-1, \lfloor n/2 \rfloor)$.
+In the \textit{initial block state}, the block is in its base orientation unless noted, is always unfixed and its initial position $\langle m-1, \lfloor n/2 \rfloor \rangle$.
 
-    \item[Rotating blocks] We define rotation of blocks to be a transformation of the block's piece colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The permutations:
+    \item[Rotating blocks] Rotation of blocks is defined to be a transformation of the block's colors, according to the permutation $\sigma: \{B,W\}^4 \mapsto \{B,W\}^4$ corresponding to some rotation. The four possible permutations are:
 
     \begin{enumerate}
+        \item $id$: $\sigma_{id}(\mathbf{c}) := (c_1)(c_2)(c_3)(c_4)$
         \item $\frac{\pi}{2}$: $\sigma_{C}(\mathbf{c}) := (c_1\;c_2\;c_3\;c_4)$
         \item $\pi$: $\sigma_{H}(\mathbf{c}) := (c_1\;c_3)(c_2\;c_4)$
         \item $\frac{3 \pi}{2} = -\frac{\pi}{2}$: $\sigma_{CC}(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
     \end{enumerate}
 
-    We define a shorthand for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. Ie. the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$.
+    A shorthand is defined for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. For example the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$. Please note that the purpose of this definition is to aid in the proof. In this system rotation is not an allowed block manipulation during gameplay.
 
-    \item[Game operations] No operations are legal for a piece $P = (\mathbf{c}, (i,j), fixed)$. The following operations are legal for a piece $P = (\mathbf{c}, (i,j), unfixed)$, with current gameboard $B$:
+    \item[Game operations] No operations are legal for a piece $P = (\mathbf{c}, \langle i,j \rangle, fixed)$. The following operations are legal for a piece $P = (\mathbf{c}, \langle i,j \rangle, unfixed)$, with current gameboard $B$:
 
     \begin{enumerate}
-        \item A \emph{rotation}. The new block state is $(\sigma(\mathbf{c}), (i,j), unfixed)$, where $\sigma$ is the corresponding permutation.
-        \item A \emph{slide to the left}. If the cells $(i,j-1)$ and $(i+1, j-1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j-1), unfixed)$.
-        \item A \emph{slide to the right}. if the cells $(i,j+1)$ and $(i+1, j+1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j-1), unfixed)$.
-        \item A \emph{drop} by one row, if the cells $(i-1, j)$ and $(i-1, j+1)$ are unfilled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i-1, j), unfixed)$.
-        \item A \emph{fix}. If the cells $(i-1, j)$ or $(i-1, j+1)$ are filled in $B$ the move is legal. The new block state is $(\mathbf{c}, (i, j), fixed)$.
+        \item A \emph{slide to the right}. if the cells $\langle i,j+1 \rangle$ and $\langle i+1, j+1 \rangle$ are unfilled and in the bounds of the gamboard the move is legal. The new block state is $(\mathbf{c}, \langle i, j+1 \rangle, unfixed)$.
+    \item A \emph{slide to the left}. if the cells $\langle i,j-1 \rangle$ and $\langle i+1, j-1 \rangle$ are unfilled and in the bounds of the gameboard, the move is legal. The new block state is $(\mathbf{c}, \langle i, j-1 \rangle, unfixed)$
+\item A \emph{drop} by one row, if the cells $\langle i-1, j \rangle$ and $\langle i-1, j+1 \rangle$ are unfilled and in the bounds of the gameboard, the move is legal. The new block state is $(\mathbf{c}, \langle i-1, j \rangle, unfixed)$.
+        \item A \emph{fix}. If the cells $\langle i-1, j \rangle$ or $\langle i-1, j+1 \rangle$ are filled or $i=1$ the move is legal. The new block state is $(\mathbf{c}, \langle i, j \rangle, fixed)$.
     \end{enumerate}
 
 \item[Playing the game] A \textit{trajectory} $\tau$ of a block $P$ is a sequence of (legal) game moves starting from the initial block state and ending with a fix move. The application of a trajectory on a block $P$ in a gameboard $B$ renders a new gameboard $B'$ according to the following rules:
