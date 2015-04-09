@@ -1,5 +1,5 @@
 \section{Result}
-The following lemma will be of use later in the proof:\\
+The following lemma will be of use later parts of the proof:\\
 
 \begin{lem}
 \label{lem:legality}
@@ -21,13 +21,31 @@ Thus we have that checking the validity of $\phi$ in $G$ can be done in $O(|\phi
 Given a Lumines game $G = (B_0, P_1, \ldots, P_p)$, a goal $C$ and a solution $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$, is this solution $\phi$ verifiable in polynomial time? In order to prove this we begin by proving the following modified theorem from \cite{tetris}: \\
 
 \begin{thm}
-    For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in NP$
+For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in NP$.
 \end{thm}
 
 \begin{proof}
 We are given a Lumines game $G = (B_0, P_1, \ldots, P_p)$ and a acyclic trajectory sequence $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Let $B_0$ be $m \times n$ gameboard.
 
-Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 < |B_0|$ states, unfixed once in each possible position and fixed in one final position. 
+Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 < |B_0|$ states, unfixed once in each possible position and fixed in one final position. Thus $\phi = \text{poly}(G)$.
 
-Thus in order to.
+Checking whether $\phi$ is acyclic can be done in $\text{poly}(|\phi|) = \text{poly}(|G|)$ time by comparing each operation in every trajectory $\tau$ with the other operations in the same trajectory. Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
+
+Since $\Phi$ is checkable, we can then in time $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ verify if $\Phi(G, \phi)$ holds. Thus $\Phi \in \text{NP}$.
 \end{proof}
+
+\begin{lem}
+The objective k-cleared-cells is checkable and acyclic.
+\end{lem}
+
+\begin{proof}
+The objective is acyclic because it only depends on fixed block state at the end of each trajectory, since the fix operation is the only way to trigger clearing of cells. The path in the trajectory is therefore irrelevant. 
+
+One can count the total amount of cleared cells simply by scanning the gameboard after each fix loop iteration, and then summing the results of each iteration. As presented in the proof for lemma~\ref{lem:legality}, this loop runs $O(|B_0|^2) = \text{poly}(|G|)$ times. In total the summing can therefore be done in $\text{poly}(|G|, |\phi|)$ time. Thus the objective is checkable.
+\end{proof}
+
+This naturally leads us to the following corollary:\\
+
+\begin{cor}
+The k-cleared-cells problem is in NP.
+\end{cor}
