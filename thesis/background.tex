@@ -1,129 +1,5 @@
 \section{Background}
 
-
-\subsection{Lumines}
-The video game Lumines was released in December 2004 in Japan for the PSP platform. The game was a major success for the developer Q Entertainment, and has since its original release been followed with a couple of sequels \cite{wiki:lumines}.
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-    \begin{tikzpicture}
-        \lummonowhite{0}{0}
-        \lummonoblack{3}{0}
-        \lumlwhite{6}{0}
-        \lumlblack{9}{0}
-        \lumh{12}{0}
-        \lumx{15}{0}
-    \end{tikzpicture}
-    }
-    \caption{The six pieces of lumines: M\{W,B\}, L\{W,B\}, H and X}
-    \label{fig:pieces}
-\end{figure}
-
-Lumines is a two-dimensional grid game, in which a sequence of $2 \times 2$ dichromatic \textit{blocks} falls, and the user rotates and shifts the block before its bottom \text{cells} reaches other cells, \textit{terrain}, in the gameboard. When the block reach existing terrain, it is no longer possible to shift or rotate the block. If both bottom cells of the block is supported by existing terrain, the block stays put on that terrain. Otherwise, the half of the block that is not supported by terrain will fall down until it is. The player is then presented with the next block.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-    \begin{subfigure}[b]{0.45\linewidth}
-        \resizebox{\linewidth}{!}{
-        \begin{tikzpicture}
-            \lumx{0}{4}
-            \draw[thick, ->] (1,3.5) -- (1, 2.5);
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        \hspace{0.25cm}
-        \begin{tikzpicture}
-            \lumx{0}{2}
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        }
-        \caption{}
-    \end{subfigure}
-    \hspace{0.05\linewidth}
-    \begin{subfigure}[b]{0.45\linewidth}
-        \resizebox{\linewidth}{!}{
-        \begin{tikzpicture}
-            \lumx{1}{4}
-            \draw[thick, ->] (2,3.5) -- (2, 2.5);
-            \lumx{0}{0}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        \hspace{0.25cm}
-        \begin{tikzpicture}
-            \lumx{0}{0}
-            \cellb{1}{2}
-            \cellw{1}{3}
-            \cellw{2}{0}
-            \cellb{2}{1}
-            \draw [draw=none] rectangle (3, 7);
-        \end{tikzpicture}
-        }
-        \caption{}
-    \end{subfigure}
-    }
-    \caption{Block behavior with and without supporting terrain}
-\end{figure}
-
-If at any point the player forms a monochromatic $2 \times 2$ square, all cells belonging to that square is \textit{marked}. Note that these squares may overlap, for example all cells within a monochromatic $2 \times 3$ rectangle is marked, since it consists of overlapping $2 \times 2$ monochromatic squares. At a regular pace a vertical \textit{sweep-line} scans the gameboard and removes all marked cells.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellw{0}{0}
-            \cellw{1}{0}
-            \cellb{2}{0}
-            \cellw{0}{1}
-            \cellw{2}{1}
-            \cellw{2}{2}
-            \cellb{0}{5}
-            \cellw{1}{5}
-            \cellb{0}{6}
-            \cellw{1}{6}
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellw{0}{0}
-            \cellw{1}{0}
-            \cellb{2}{0}
-            \cellw{0}{1}
-            \cellw{2}{1}
-            \cellw{2}{2}
-            \cellb{0}{2}
-            \cellw{1}{1}
-            \cellb{0}{3}
-            \cellw{1}{2}
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-        \begin{subfigure}[b]{.3\linewidth}
-        \fbox{
-        \begin{tikzpicture}
-            \cellb{0}{2}
-            \cellb{0}{3}
-            \cellb{2}{0}
-            \draw (0,0) [very thick, draw=black, fill=red] rectangle (2,2);
-            \draw (1,1) [very thick, draw=black, fill=red] rectangle (3,3);
-            \draw (1,1) [very thick, draw=black, fill=red] rectangle (2,2);
-            \draw [draw=none] (0,0) rectangle (3, 8);
-        \end{tikzpicture}
-        }
-        \end{subfigure}
-    }
-    \caption{Marking of $2 \times 2$ monochromatic squares (from \cite{lumines})}
-\end{figure}
-
-The version of Lumines found in actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
-
 \subsection{Reduction}
 A reduction is an algorithm used to solve one problem with another. A reduction of a decision problem is valid if each yes-instance gives a yes-instance and each no instance gives a no instance. If the reduction is to be made in polynomial time the problem that is solved must not be harder than the problem we reduce to.\cite{reduction}
 
@@ -149,10 +25,10 @@ In the paper on Classical Nintendo Games the computational complexity of games i
 
 \subsubsection{Lemmings}
 
-Lemmings is a 2D puzzle-platformer game where the objective is to guide a couple of lemmings through obstacles to reach a designated exit. Much like the proof of the classical Nintendo games, the proof that Lemmings is NP-complete uses gadgets. The authors use the 3-SAT to prove NP-hardness. 
+Lemmings is a 2D puzzle-platformer game where the objective is to guide a couple of characters called lemmings through obstacles to reach a designated exit by giving the lemmings abilities e.g. digging or building. Much like the proof of the classical Nintendo games, the proof that Lemmings is NP-complete uses gadgets. The authors use the 3-SAT to prove NP-hardness. 
 
 \subsubsection{Minesweeper}
-Minesweeper is a popular puzzle game shipped with the Windows operating system. The author use SAT to prove NP-hardness by building Minesweeper configurations of logic circuits e.g. NOT-, AND- and XOR-gates \cite{minesweeper}.
+Minesweeper is a popular puzzle game shipped with the Windows operating system. The game is played on a $n \times m$ gameboard where random cells are designated to contain mines. The goal of the game is to clear all cells except the mines. When a player clears a cell and the cell is not a mine the player is presented with a digit. The digit tells the player how many adjecent cells contain mines. If there are no adjecent mines the cell is blank. The author use SAT to prove NP-hardness by building Minesweeper configurations of logic circuits e.g. NOT-, AND- and XOR-gates \cite{minesweeper}.
 
 \subsubsection{Match-three games}
 
@@ -165,7 +41,7 @@ Tetris is a popular puzzle game where the player is given a sequence of tetromin
 \subsection{Lumines and its similarities to Tetris}
 \label{subsub:sim}
 
-The existing research on Lumines largely focus on effective strategies. One paper states that there exists strategies that can never lose, no matter what sequence of pieces are dropped \cite{lumines}. This is different to Tetris where losing can be inevitable if the computer is allowed to change the sequence according to how the player organizes the pieces \textbf{todo: source}. Another relevant difference the brought up in prior research is that in Lumines it is possible to create terrain that can not be cleared, while in Tetris a gameboard can always be cleared if the player is given an appropriate sequence of pieces.
+The existing research on Lumines largely focus on effective strategies. One paper states that there exists strategies that can never lose, no matter what sequence of pieces are dropped \cite{lumines}. This is different to Tetris where losing can be inevitable if the computer is allowed to change the sequence according to how the player organizes the pieces \cite[p. 4]{tetris}. Another relevant difference the brought up in prior research is that in Lumines it is possible to create terrain that can not be cleared, while in Tetris a gameboard can always be cleared if the player is given an appropriate sequence of pieces.
 
 The standard Lumines game is played on a $10 \times 16$-gameboard, while standard Tetris is played on a $20 \times 10$-gameboard. In both games, when any block is fixed outside of the gameboard the player loses the game. While in Tetris a completed row is removed instantly, the marked cells in Lumines is not removed until the sweep-line has scanned the area.
 
