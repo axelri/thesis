@@ -1,7 +1,10 @@
 \section{Result}
 
 \subsection{On the size of problem input}
-The input to a particular instance of the k-cleared-cells problem is the game $G = (B_0, P_1, \ldots, P_p)$. In order to analyze the verifiable of a given solution in polynomial time, we must begin by defining the size $|G|$. The game contains on gameboard $B_0$ of size $|B| = mn$, and $p$ block states which are all of constant size, hence of size $O(p)$ in total. Thus $|G| \in O(|B|p)$.
+The input to a particular instance of the k-cleared-cells problem is the game $G = (B_0, P_1, \ldots, P_p)$. In order to analyze the verifiability of a given solution in polynomial time, we must begin by examining the size $|G|$. The game contains on gameboard $B_0$ of size $|B| = mn$, and $p$ block states which are all of constant size. Hence of the size of all the blocks state are $O(p)$. Thus $|G| \in O(p \cdot |B|)$.
+
+\subsection{On the size of the problem solution}
+The solution to a particular instance of the k-cleared-cells problem is the trajectory sequence $\phi=(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Since definition~\ref{defn:checkable} depends both on the size of $|G|$ and $|\phi|$, examining the size of $|\phi|$ is of importance. $\phi$ consists of $p$ gameboards of size $|B| = mn$, and $p$ trajectories of unknown but finite size. We therefore define $C$ to be the upper bound of the amounts of operations in any trajectory in $\phi$. Thus $|\phi| \in O(p \cdot |B| \cdot C)$.
 
 \subsection{Is k-cleared-cells in NP?}
 
@@ -13,28 +16,28 @@ The legality of a trajectory sequence $\phi=(B_0, \tau_1, B_1, \ldots ,\tau_p, B
 \end{lem}
 
 \begin{proof}
-For every trajectory $\tau$ in $\phi$, deciding whether any operation is legal is a check in constant time.
+For every trajectory $\tau$ in $\phi$, deciding whether any operation in $\tau$ is legal is a check in constant time according to the rules in~\ref{subsub:operations}.
 
-After a fix operation has been made, the gameboard enters a loop and changes according to the clear semantics. This loop can run at most $|B| / 4$ times, since at least 4 cells has to be cleared each iteration, and no change can occur if there aren't any cells left to clear. Each iteration requires checking at most $4|B|$ cells; each cell in the gameboard and three neighbors. Thus the time to compute the new gameboard for each $\tau$ in $\phi$ is $\in O(|B|^2)$.
+After a fix operation has been made, the gameboard enters a loop and changes according to the clear semantics defined in~\ref{subsub:gameplay}. This loop can run at most $|B| / 4$ times, since at least 4 cells has to be cleared each iteration, and no change can occur if there aren't any cells left to clear. Each iteration requires checking at most $4|B|$ cells for monochromatic $2 \times 2$-squares to mark. Thus the time to compute the new gameboard for each $\tau$ in $\phi$ is $\in O(|B|^2)$.
 
-Checking that applying $\tau_i$ to $P_i$ in $B_{i-1}$ yields $B_i$ requires $|B| \in O(|B|)$ comparisons. 
+Checking that applying $\tau_i$ to $P_i$ in $B_{i-1}$ yields $B_i$ requires $|B|$ comparisons. 
 
-Thus we have that checking the validity of $\phi$ in $G$ can be done in $O(|\phi| \cdot |B|^3) = \text{poly}(|G|, |\phi|)$. 
+In total $p$ new gameboards has to be generated and compared. Let the maximum amount of operations in any trajectory $\tau$ in $\phi$ be bounded by $C \in \mathbb{N}$. Thus we have that checking the validity of $\phi$ in $G$ can be done in $O(p \cdot C \cdot |B|^3) = \text{poly}(|G|, |\phi|)$. 
 \end{proof}
 
-We then prove this modified theorem from \cite{tetris}: \\
+We proceed by proving this modified theorem from \cite{tetris}: \\
 
 \begin{thm}
 \label{thm:npobj}
-For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in NP$.
+For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in \text{NP}$.
 \end{thm}
 
 \begin{proof}
 We are given a Lumines game $G = (B_0, P_1, \ldots, P_p)$ and a acyclic trajectory sequence $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Let $B_i$ be $m \times n$ gameboard.
 
-Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| = O(|B|p) = O(|G|)$.
+Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| \in O(p \cdot |B|) \subset O(|G|)$. This implies $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$.
 
-Checking whether $\phi$ is acyclic can be done in $\text{poly}(|\phi|) = \text{poly}(|G|)$ time by comparing each operation in every trajectory $\tau$ with the other operations in the same trajectory. Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
+Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
 
 Since $\Phi$ is checkable, we can then in time $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ verify if $\Phi(G, \phi)$ holds. Thus $\Phi \in \text{NP}$.
 \end{proof}
@@ -46,9 +49,9 @@ The objective k-cleared-cells is checkable and acyclic.
 \end{lem}
 
 \begin{proof}
-The objective is acyclic because it only depends on fixed block state at the end of each trajectory, since the fix operation is the only way to trigger clearing of cells. The path in the trajectory is therefore irrelevant. 
+The objective is acyclic because it only depends on fixed block state at the end of each trajectory, since the fix operation is the only way to trigger clearing of cells and thereby changes to the gameboard. The path taken in the trajectory is therefore irrelevant, as long as its legal. 
 
-One can count the total amount of cleared cells simply by scanning the gameboard after each fix loop iteration, and then summing the results of each iteration. As presented in the proof for lemma~\ref{lem:legality}, this loop runs $O(|B|^2)$ times, and the count of cleared cells can be done in $O(|B|)$. In total the summing can therefore be done in $O(|B|^3 \cdot |\phi|) = \text{poly}(|G|, |\phi|)$ time. Thus the objective is checkable.
+One can count the total amount of cleared cells simply by scanning the gameboard after each fix loop iteration, and then summing the results of each iteration. As presented in the proof for lemma~\ref{lem:legality}, this loop runs $O(|B|^2)$ times, and the counting of cleared cells can be done in $O(|B|)$. In total the summing can therefore be done in $O(|B|^3 \cdot |\phi|) = \text{poly}(|G|, |\phi|)$ time. Thus the objective is checkable.
 \end{proof}
 
 This naturally leads us to the following corollary:\\
