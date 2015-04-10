@@ -1,4 +1,4 @@
-\subsection{Formal definitions}
+\section{Formal definitions}
 \label{sub:formal}
 
 This formalization of Lumines roughly follows the methodology of \citeauthor{tetris} in their paper on the computational complexity of Tetris \cite{tetris}. Please note that the formalization corresponds to the simplified model of Lumines considered in this report, rather than the actual video game. With this in mind, in this section `Lumines' should be read as `Lumines with the constraints and modifications this report assumes'.
@@ -61,16 +61,16 @@ In the \textit{initial block state}, the block is in its base orientation unless
 The main Lumines goal this paper is concerned with is the problem of maximizing the amount of cleared cells given a particular game. Naturally the domain of the problem is the simplified version of Lumines previously presented in~\ref{sub:formal}. The problem is formulated as a decision problem in this domain as follows:
 
 \begin{quote}
-\textbf{The (offline, no-rotation) k-cleared-cells problem}: Given a Lumines game $G$ and a goal $C \in \mathbb{N}$, does there exist a trajectory sequence $\phi$ such that when $\phi$ is applied to $G$, at least $C$ cells are cleared in total?
+\textbf{The (offline, no-rotation) k-cleared-cells problem}: Given a Lumines game $G$ and a goal $k \in \mathbb{N}$, does there exist a trajectory sequence $\phi$ such that when $\phi$ is applied to $G$, at least $k$ cells are cleared in total?
 \end{quote}
 
 \subsubsection{Checkable and acyclic goals}
-The notion of checkable and acyclic goals is presented in \cite{tetris}. These definitions will aid in proving k-cleared-cells to be in NP. It is used in a similar manner in the original paper.
+The notion of checkable and acyclic goals is presented in \cite{tetris}. These definitions will aid in proving k-cleared-cells to be in NP. It is used in a similar manner in the original paper.\\
 
-\begin{quote}
-We say that an objective function $\Phi$ is \textit{checkable} when, given a a game $G$ and a trajectory sequence $\phi$, we can compute the truth value of $\Phi(G, \phi)$ in time $\text{poly}(|G|, |\phi|)$
-\end{quote}
-
-\begin{quote}
+\begin{defn}
+We say that an objective function $\Phi$ is \textit{checkable} when, given a a game $G$ and a trajectory sequence $\phi$, we can compute the truth value of $\Phi(G, \phi)$ in time $\text{poly}(|G|, |\phi|)$.
+\end{defn}
+\bigbreak
+\begin{defn}
 We say that an objective function $\Phi$ is \textit{acyclic} when, for all games $G$, if there is a trajectory sequence $\phi$ so that $\Phi(G, \phi)$ holds, then there is a trajectory sequence $\phi'$ so that $\Phi(G, \phi')$ holds and there are no repeated piece states in $\phi'$.
-\end{quote}
+\end{defn}
