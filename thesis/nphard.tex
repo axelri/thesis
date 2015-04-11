@@ -1,1 +1,33 @@
 \subsection{Is k-cleared-cells NP-hard?}
+
+We prove that k-cleared-cells is NP-hard by constructing a reduction from the \textit{Subset sum} problem. The reduction consists of two parts: one part which considers $K > 1$ in the given \textit{Subset sum} instance, and one part which considers the special case $K = 1$.
+
+The goal of each part is to prove the following: 
+
+\begin{quote}
+Given a \textit{Subset sum} instance $P = \{p_1, \ldots, p_n\}, K \in \{1\} ,\{2, 3, \ldots \}$, there exists a solution $M = \{q_1, \ldots, q_m \} \subseteq P, \sum M = K$ if and only if there exists a trajectory sequence $\phi$ which clears $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
+\end{quote}
+
+\subsubsection{$k > 1$}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.5\textwidth}{!}{
+    \begin{tikzpicture}
+        \welldefault{0}{0}
+        \welldefault{5}{0}
+        \draw[dashed] (0, -1) -- (0, 11);
+        \draw[dashed] (9, -1) -- (9, 11);
+        \draw[dashed] (-1, 0) -- (10, 0);
+        \draw[dashed] (-1, 10) -- (10, 10);
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 0) -- (0, 10) node [black,midway,xshift=-4cm]
+        {\Huge $2 \left( \sum P + K \right)$ rows};
+        \draw [decorate,decoration={brace,amplitude=10pt,mirror},xshift=0pt,yshift=-12pt]
+        (0, 0) -- (9, 0) node [black,midway,yshift=-1cm]
+        {\Huge $10$ columns};
+    \end{tikzpicture}
+    }
+    \caption{The initial gameboard}
+    \label{fig:initial}
+\end{figure}
