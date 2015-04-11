@@ -1,11 +1,11 @@
 \subsection{Is k-cleared-cells NP-hard?}
 
-We prove that k-cleared-cells is NP-hard by constructing a reduction from the \textit{Subset sum} problem. The reduction consists of two parts: one part which considers $K > 1$ in the given \textit{Subset sum} instance, and one part which considers the special case $K = 1$.
+We prove that k-cleared-cells is NP-hard by constructing a reduction from the \textit{Subset sum} problem. The reduction consists of two parts: one part which considers $K > 1$ in the given \textit{Subset sum} instance, and one part which considers the special case $K = 1$. The first part is more complex and consists of five phases, whereas the second part is relatively straightforward.
 
 The goal of each part is to prove the following: 
 
 \begin{quote}
-Given a \textit{Subset sum} instance $P = \{p_1, \ldots, p_n\}, K \in \{1\} ,\{2, 3, \ldots \}$, there exists a solution $M = \{q_1, \ldots, q_m \} \subseteq P, \sum M = K$ if and only if there exists a trajectory sequence $\phi$ which clears $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
+Given a \textit{Subset sum} instance $Q = \{q_1, \ldots, q_a\}, K \in \{1\} ,\{2, 3, \ldots \}$, there exists a solution $S = \{s_1, \ldots, s_b \} \subseteq Q, \sum Q = K$ if and only if there exists a trajectory sequence $\phi$ which clears $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
 \end{quote}
 
 \subsubsection{The initial gameboard}
@@ -114,4 +114,25 @@ This feature cannot be utilized in the default well state though, since fixing a
     \end{subfigure}
     \caption{Open and closed wells}
     \label{fig:openclosed}
+\end{figure}
+
+\subsubsection{Phase 1}
+In this phase we transform every $q_i \in Q$ to sequences of game blocks. These sequences will be part of the block states $P_1, \ldots P_n$ in the constructed \textit{k-cleared-cells} instance. The transformation is done by creating a sequence of 1 $\mathbf{H}_{H}$, $q_i$ $\mathbf{H}$ and 1 $\mathbf{H}_H$ blocks (in their initial state) for each give $q_i$.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+        \startb{0}{0}
+        \middleb{3}{0}
+        \draw[dotted] (5, 1) -- (8, 1);
+        \middleb{8}{0}
+        \startb{11}{0}
+        \draw [decorate,decoration={brace,amplitude=10pt,mirror},xshift=0pt,yshift=-12pt]
+        (3, 0) -- (10, 0) node [below,black,midway,yshift=-0.5cm]
+        {\Huge $q_i$ blocks};
+    \end{tikzpicture}
+    }
+    \caption{Transformation of \textit{Subset sum} element $q_i$}
+    \label{fig:wells}
 \end{figure}
