@@ -6,7 +6,6 @@
 *.bbl
 *.out
 *.toc
-thesis.pdf
 *blx.bib
 .DS_STORE
 makeconf
