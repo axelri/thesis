@@ -125,13 +125,13 @@ Assuming that no blocks has been place such that any well is permanently closed,
 \begin{equation*}
     2 \left( i-1 \right) + \sum_{j=0}^{i-1} q_j
 \end{equation*}
-blocks has been placed.
+blocks have been placed.
 
 \item Since each block placement clears exactly 4 cells
 \begin{equation*}
     8 \left( i-1 \right) + 4 \sum_{j=0}^{i-1} q_j
 \end{equation*}
-cells has been cleared.
+cells have been cleared.
 
 \item There exists: 
     \begin{equation*}
@@ -158,6 +158,11 @@ consists of black cells in column 4.
         \draw[dashed] (-1, 12) -- (6, 12);
         \draw[dashed] (-1, 20) -- (6, 20);
         \draw[dashed] (5, 0) -- (5, 22);
+        \node at (0.5, -0.5) {\large 1};
+        \node at (1.5, -0.5) {\large 2};
+        \node at (2.5, -0.5) {\large 3};
+        \node at (3.5, -0.5) {\large 4};
+        \node at (4.5, -0.5) {\large 5};
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 0) -- (0, 6) node [left,align=right,black,midway,xshift=-1cm]
         {\huge $2 \left( K-1 \right)$ rows};
@@ -167,9 +172,52 @@ consists of black cells in column 4.
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 12) -- (0, 20) node [left,align=right,black,midway,xshift=-1cm]
         {\huge $2 \sum M_w $ rows};
+        \draw (3.5, 0.5) -- (7, 0.5) node [right, black, xshift=1cm] 
+        {\huge row 1};
+        \draw (3.5, 5.5) -- (7, 5.5) node [right, black, xshift=1cm, yshift=-0.5cm] 
+        {\huge row $2 \left( K-1 \right)$};
+        \draw (3.5, 6.5) -- (7, 6.5) node [right, black, xshift=1cm, yshift=0.5cm] 
+        {\huge row $2 \left( K-1 \right) + 1$};
+        \draw (3.5, 11.5) -- (7, 11.5) node [right, black, xshift=1cm, yshift=-0.5cm] 
+        {\huge row $2 \left( K-1 + \sum Q - \sum M_w \right)$};
+        \draw (3.5, 12.5) -- (7, 12.5) node [right, black, xshift=1cm, yshift=0.5cm] 
+        {\huge row $2 \left( K-1 + \sum Q - \sum M_w \right) +1$};
+        \draw (3.5, 19.5) -- (7, 19.5) node [right, black, xshift=1cm] 
+        {\huge row $2 \left( \sum Q + K - 1 \right)$};
     \end{tikzpicture}
     }
     \caption{Depiction of invariants}
     \label{fig:invariant}
 \end{figure}
 
+When every block sequence corresponding to the elements of $Q$ has been placed, $a$ elements has been transformed. For all purposes of this proof this is equivalent to being at the start of the sequence corresponding to $q_{a+1}$, even though strictly speaking no such element is given. Thus $i = a+1$ and from the invariants we obtain:
+
+\begin{enumerate}
+\item Still holds.
+\item Still holds.
+\item In total
+\begin{equation*}
+    2a + \sum Q
+\end{equation*}
+blocks have been placed.
+
+\item In total
+\begin{equation*}
+    8a + 4 \sum Q
+\end{equation*}
+cells have been cleared.
+
+\item There exists:
+\begin{equation*}
+    M_1, M_2 \subseteq Q, M_1 \cap M_2 = \varnothing, M_1 \cup M_2 = Q
+\end{equation*}
+such that for any well $w \in \{1,2\}$ it holds that the rows in interval
+\begin{equation*}
+        \left[ 2 \left( K-1 + \sum Q - \sum M_w \right) +1, 2 \left( K-1 + \sum Q \right) \right]
+    \end{equation*}
+consists of white cells in column 4, and the rows in interval
+    \begin{equation*}
+        \left[ 1, 2 \left( K-1 + \sum Q - \sum M_w \right) \right]
+    \end{equation*}
+consists of black cells in column 4.
+\end{enumerate}
