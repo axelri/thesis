@@ -28,11 +28,88 @@ TODO: prove that the height doesn't change in the columns in phase 1. Important 
 \bigbreak
 
 \begin{lem}
+\label{lem:permclose}
 In phase 1, placing a $\mathbf{H}$ block in any other column than 4-5 in a well will make the same well permanently closed.
 \end{lem}
 
 \begin{proof}
 In the first case, the well is closed. We can only place the $\mathbf{H}$ block in column 2-3. Since no cells are cleared as a result, column 1 to 4 are filled except for the top two rows. We therefore cannot place any block in these columns without a game over. Either the column right of column 5 is filled, or the gameboard has ended. Since column 4 is also filled, we cannot place any block in column 5. Thus the well is permanently closed.
 
-In the second case, the well is open. Apart from column 4-5, we can only place the $\mathbf{H}$ block in column 3-4. This does not clear any cells as a result. Thus with the same arguments as in the first case, the well is permanently blocked.
+In the second case, the well is open. Apart from column 4-5, the $\mathbf{H}$ block can only be placed in column 3-4. This does not clear any cells as a result. Thus with the same arguments as in the first case, the well is permanently closed.
 \end{proof}
+
+Since later in the proof it will become apparent that having a permanently closed well makes it impossible to construct a optimal trajectory sequence, lemma~\ref{lem:permclose} leaves us no choice but to place all $\mathbf{H}$ blocks in column 4-5 of the open well. Finally the last $\mathbf{H}_H$ block must be placed either in column 2-3 of a closed well, or column 3-4 of an open well, in order to not permanently close a well.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.55\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \welldefault{0}{0}
+                \startb{1}{10}
+                \welldefault{5}{0}
+                \draw[dashed] (0, 0) -- (0, 12);
+                \draw[dashed] (10, 0) -- (10, 12);
+                \draw[dashed] (0, 0) -- (10, 0);
+                \draw[->, line width=10pt] (11, 6) -- (14, 6);
+                \wellopenwhole{15}{0}
+                \welldefault{20}{0}
+                \draw[dashed] (15, 0) -- (15, 12);
+                \draw[dashed] (25, 0) -- (25, 12);
+                \draw[dashed] (15, 0) -- (25, 0);
+            \end{tikzpicture}
+        }
+        \caption{First block}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.55\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \wellopenwhole{0}{0}
+                \middleb{3}{10}
+                \welldefault{5}{0}
+                \draw[dashed] (0, 0) -- (0, 12);
+                \draw[dashed] (10, 0) -- (10, 12);
+                \draw[dashed] (0, 0) -- (10, 0);
+                \draw[->, line width=10pt] (11, 6) -- (14, 6);
+                \wellopenwhole{15}{0}
+                \cellw{18}{7}
+                \cellw{18}{6}
+                \welldefault{20}{0}
+                \draw[dashed] (15, 0) -- (15, 12);
+                \draw[dashed] (25, 0) -- (25, 12);
+                \draw[dashed] (15, 0) -- (25, 0);
+            \end{tikzpicture}
+        }
+        \caption{Middle blocks}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.55\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \wellopenwhole{0}{0}
+                \cellw{3}{7}
+                \cellw{3}{6}
+                \startb{2}{10}
+                \welldefault{5}{0}
+                \draw[dashed] (0, 0) -- (0, 12);
+                \draw[dashed] (10, 0) -- (10, 12);
+                \draw[dashed] (0, 0) -- (10, 0);
+                \node at (12.5, 6)
+                {\Huge or};
+                \wellopenwhole{15}{0}
+                \cellw{18}{7}
+                \cellw{18}{6}
+                \welldefault{20}{0}
+                \startb{21}{10}
+                \draw[dashed] (15, 0) -- (15, 12);
+                \draw[dashed] (25, 0) -- (25, 12);
+                \draw[dashed] (15, 0) -- (25, 0);
+            \end{tikzpicture}
+        }
+        \caption{Final block}
+    \end{subfigure}
+
+    \caption{Block placement in phase 1}
+    \label{fig:placement}
+\end{figure}
