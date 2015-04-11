@@ -23,7 +23,7 @@ The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance
         \draw[dashed] (-1, 0) -- (10, 0);
         \draw[dashed] (-1, 10) -- (10, 10);
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
-        (0, 0) -- (0, 10) node [black,midway,xshift=-4cm]
+        (0, 0) -- (0, 10) node [align=right, black,midway,xshift=-4cm]
         {\Huge $2 \left( \sum P + K \right)$ rows};
         \draw [decorate,decoration={brace,amplitude=10pt,mirror},xshift=0pt,yshift=-12pt]
         (0, 0) -- (9, 0) node [black,midway,yshift=-1cm]
@@ -39,6 +39,29 @@ The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance
     \resizebox{!}{0.3\paperheight}{
     \begin{tikzpicture}
         \welldetailed{0}{0}
+        \draw[dashed] (-1, 0) -- (6, 0);
+        \draw[dashed] (-1, 14) -- (6, 14);
+        \draw[dashed] (-1, 6) -- (6, 6);
+        \draw[dashed] (5, 0) -- (5, 16);
+        \node at (0.5, -0.5) {\large 1};
+        \node at (1.5, -0.5) {\large 2};
+        \node at (2.5, -0.5) {\large 3};
+        \node at (3.5, -0.5) {\large 4};
+        \node at (4.5, -0.5) {\large 5};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 0) -- (0, 6) node [align=right,black,midway,xshift=-3cm]
+        {\huge $2 \left( K-1 \right)$ rows};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 6) -- (0, 14) node [align=right,black,midway,xshift=-3cm]
+        {\huge $2 \sum P$ rows};
+        \draw (3.5, 0.5) -- (7, 0.5) node [black, xshift=2cm] 
+        {\huge row 1};
+        \draw (3.5, 6.5) -- (7, 6.5) node [black, xshift=3cm, yshift=-1.5cm]
+        {\huge row $2 \left( K+1 \right)$};
+        \draw (3.5, 5.5) -- (7, 5.5) node [black, xshift=3.5cm, yshift=1.5cm]
+        {\huge row $2 \left( K+1 \right) +1$};
+        \draw (3.5, 13.5) -- (7, 13.5) node [black, xshift=4cm]
+        {\huge row $2 \left( K-1+ \sum P \right)$};
     \end{tikzpicture}
     }
     \caption{The well structure}
