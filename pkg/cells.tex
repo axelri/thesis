@@ -53,6 +53,14 @@
     \cellw{#1+3}{#2+1}
 }
 
+\newcommand{\wellopen}[2]
+{
+    \cellw{#1}{#2}
+    \cellb{#1+1}{#2}
+    \cellb{#1}{#2+1}
+    \cellb{#1+1}{#2+1}
+}
+
 \newcommand{\welldefault}[2]
 {
     \wellbot{#1}{#2}
@@ -70,4 +78,18 @@
     \draw[dotted] (#1+2, #2+8) -- (#1+2, #2+10);
     \welltop{#1}{#2+10}
     \wellclosed{#1}{#2+14}
+}
+
+\newcommand{\topclosed}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \welltop{#1}{#2+2}
+    \wellclosed{#1}{#2+6}
+}
+
+\newcommand{\topopen}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \welltop{#1}{#2+2}
+    \wellopen{#1}{#2+6}
 }

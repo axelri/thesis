@@ -91,4 +91,27 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
 
 The purpose of the well is to force the placement of blocks in play. One feature of the well structure is that if we were to drop a block with 2 black cells on the right half in column 4-5, the black right half would drop down and instantly clear itself and the two bottommost cells in column 4. The terrain in column 4 would then collapse, making place for a new block to be placed in the same manner.
 
-This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a game over. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in the reduction. We therefore define two states of the well. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. The appearance of the top section corresponding to the two well states is pictured in FIG. The reason for this will later become apparent.
+This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a game over. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in the reduction. We therefore define two states of the well. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. The appearance of the top section corresponding to the two well states is pictured in~\autoref{fig:openclosed}. The reason for this will later become apparent.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.15\linewidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \topclosed{0}{0}
+            \end{tikzpicture}
+        }
+        \caption{Closed}
+    \end{subfigure}
+    \hspace{0.02\linewidth}
+    \begin{subfigure}[b]{0.15\linewidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \topopen{0}{0}
+            \end{tikzpicture}
+        }
+        \caption{Open}
+    \end{subfigure}
+    \caption{Open and closed wells}
+    \label{fig:openclosed}
+\end{figure}
