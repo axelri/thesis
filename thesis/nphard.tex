@@ -8,7 +8,9 @@ The goal of each part is to prove the following:
 Given a \textit{Subset sum} instance $P = \{p_1, \ldots, p_n\}, K \in \{1\} ,\{2, 3, \ldots \}$, there exists a solution $M = \{q_1, \ldots, q_m \} \subseteq P, \sum M = K$ if and only if there exists a trajectory sequence $\phi$ which clears $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
 \end{quote}
 
-\subsubsection{$k > 1$}
+\subsubsection{The initial gameboard}
+
+The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance is pictured in~\autoref{fig:initial}. It consists of two identical structures which will from here on be referred to as ``wells''. From the figure we can deduce that $B$ is a $2 \left( \sum P + K \right) \times 10$-sized gameboard.
 
 \begin{figure}[H]
     \centering
@@ -30,4 +32,15 @@ Given a \textit{Subset sum} instance $P = \{p_1, \ldots, p_n\}, K \in \{1\} ,\{2
     }
     \caption{The initial gameboard}
     \label{fig:initial}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{!}{0.3\paperheight}{
+    \begin{tikzpicture}
+        \welldetailed{0}{0}
+    \end{tikzpicture}
+    }
+    \caption{The well structure}
+    \label{fig:wells}
 \end{figure}
