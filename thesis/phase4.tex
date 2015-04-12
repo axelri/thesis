@@ -1,0 +1,47 @@
+\subsubsection{Phase 4}
+If the blocks has been placed as desjcribed in the previous phases, any block can only be placed in column 4-5 of the open well without trigger a game over. A sequence of $\sum Q - 1$ $\mathbf{LB}$ blocks are generated. Placing these blocks in column 4-5 of the open well will collapse column 4 making room for another placement, just like a $\mathbf{H}$ block did in the previous phases. Since no other terrain is cleared as a result of this placement, we are forced to continue placing the $\mathbf{LB}$ blocks in the same manner.
+
+When placing block $\sum Q - \sum M_w + 1$ the well open $w$ thus has the properties depicted in~\autoref{fig:beforecol}.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{!}{0.3\paperheight}{
+    \begin{tikzpicture}
+        \beforecollapse{0}{0}
+        \lumlblack{3}{22}
+        \draw[dashed] (-1, 0) -- (6, 0);
+        \draw[dashed] (-1, 6) -- (6, 6);
+        \draw[dashed] (-1, 12) -- (6, 12);
+        \draw[dashed] (-1, 20) -- (6, 20);
+        \draw[dashed] (5, 0) -- (5, 22);
+        \node at (0.5, -0.5) {\large 1};
+        \node at (1.5, -0.5) {\large 2};
+        \node at (2.5, -0.5) {\large 3};
+        \node at (3.5, -0.5) {\large 4};
+        \node at (4.5, -0.5) {\large 5};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 0) -- (0, 6) node [left,align=right,black,midway,xshift=-1cm]
+        {\huge $2 \left( K-1 \right)$ rows};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 6) -- (0, 12) node [left,align=right,black,midway,xshift=-1cm]
+        {\huge $2 \sum M_w$ rows};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 12) -- (0, 20) node [left,align=right,black,midway,xshift=-1cm]
+        {\huge $2 \left( \sum Q - \sum M_w \right) $ rows};
+        \draw (3.5, 0.5) -- (7, 0.5) node [right, black, xshift=1cm] 
+        {\huge row 1};
+        \draw (3.5, 5.5) -- (7, 5.5) node [right, black, xshift=1cm, yshift=-0.5cm] 
+        {\huge row $2 \left( K-1 \right)$};
+        \draw (3.5, 6.5) -- (7, 6.5) node [right, black, xshift=1cm, yshift=0.5cm] 
+        {\huge row $2 \left( K-1 \right) + 1$};
+        \draw (3.5, 11.5) -- (7, 11.5) node [right, black, xshift=1cm, yshift=-0.5cm] 
+        {\huge row $2 \left( K-1+ \sum M_w \right)$};
+        \draw (3.5, 12.5) -- (7, 12.5) node [right, black, xshift=1cm, yshift=0.5cm] 
+        {\huge row $2 \left( K-1+ \sum M_w \right) +1 $};
+        \draw (3.5, 19.5) -- (7, 19.5) node [right, black, xshift=1cm] 
+        {\huge row $2 \left( \sum Q + K - 1 \right)$};
+    \end{tikzpicture}
+    }
+    \caption{Gameboard state for the open well $w$}
+    \label{fig:beforecol}
+\end{figure}

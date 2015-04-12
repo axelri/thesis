@@ -174,3 +174,34 @@
     \cellw{#1}{#2+6}
     \cellb{#1}{#2+7}
 }
+
+\newcommand{\checkbox}[2]
+{
+    \stripew{#1}{#2}
+    \stripeb{#1}{#2+1}
+}
+
+\newcommand{\wellblocked}[2]
+{
+    \cellw{#1}{#2}
+    \cellb{#1+1}{#2}
+    \cellw{#1+2}{#2}
+    \cellb{#1}{#2+1}
+    \cellw{#1+1}{#2+1}
+    \cellb{#1+2}{#2+1}
+}
+
+\newcommand{\beforecollapse}[2]
+{
+    \wellbot{#1}{#2}
+    \draw[dotted] (#1+2, #2+2) -- (#1+2, #2+4);
+    \wellbot{#1}{#2+4}
+    \ponemid{#1}{#2+6}
+    \draw[dotted] (#1+2, #2+8) -- (#1+2, #2+10);
+    \ponemid{#1}{#2+10}
+    \checkbox{#1}{#2+12}
+    \draw[dotted] (#1+2, #2+14) -- (#1+2, #2+16);
+    \checkbox{#1}{#2+16}
+    \checkbox{#1}{#2+18}
+    \wellblocked{#1}{#2+20}
+}
