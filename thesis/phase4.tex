@@ -45,3 +45,28 @@ When placing block $\sum Q - \sum M_w + 1$ the well open $w$ thus has the proper
     \caption{Gameboard state for the open well $w$}
     \label{fig:beforecol}
 \end{figure}
+
+The placement of block $\sum Q - \sum M_w + 1$, and the subsequent collapse of column 4 will result in 3 white cells from column 4 being next to 3 white cells from column 3, thus clearing a $3 \times 2$ white rectangle. This will in turn result in the collapse of column 3 and 4 by three rows as depicted in~\autoref{fig:collapse}.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{!}{0.3\paperheight}{
+    \begin{tikzpicture}
+        \collapsepre{0}{0}
+        \draw[dashed] (-1, 0) -- (5, 0);
+        \draw[dashed] (-1, 6) -- (5, 6);
+        \draw[dashed] (-1, 12) -- (5, 12);
+        \draw[dashed] (-1, 20) -- (5, 20);
+        \draw[dashed] (5, 0) -- (5, 22);
+        \node at (0.5, -0.5) {\large 1};
+        \node at (1.5, -0.5) {\large 2};
+        \node at (2.5, -0.5) {\large 3};
+        \node at (3.5, -0.5) {\large 4};
+        \node at (4.5, -0.5) {\large 5};
+        \draw[->, line width=10pt] (6, 11) -- (9, 11);
+        \collapsepost{10}{0}
+    \end{tikzpicture}
+    }
+    \caption{Collapsing of well $w$}
+    \label{fig:collapse}
+\end{figure}
