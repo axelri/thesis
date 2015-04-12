@@ -17,7 +17,7 @@ Checking that applying $\tau_i$ to $P_i$ in $B_{i-1}$ yields $B_i$ requires $|B|
 In total $p$ new gameboards has to be generated and compared. Let the maximum amount of operations in any trajectory $\tau$ in $\phi$ be bounded by $C \in \mathbb{N}$. Thus we have that checking the validity of $\phi$ in $G$ can be done in $O(p \cdot C \cdot |B|^3) = \text{poly}(|G|, |\phi|)$. 
 \end{proof}
 
-We proceed by proving this modified theorem from \cite{tetris}: \\
+We proceed by proving this modified theorem from \citeauthor{tetris} \cite{tetris}: \\
 
 \begin{thm}
 \label{thm:npobj}
@@ -27,11 +27,11 @@ For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in \text{NP}$.
 \begin{proof}
 We are given a Lumines game $G = (B_0, P_1, \ldots, P_p)$ and a acyclic trajectory sequence $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Let $B_i$ be $m \times n$ gameboard.
 
-Since $\phi$ is acyclic, each of its $p$ trajectories can only contain at most $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| \in O(p \cdot |B|) \subset O(|G|)$. This implies $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$.
+Since $\phi$ is acyclic, each of its $p$ trajectories can not contain more than $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| \in O(p \cdot |B|) \subset O(|G|)$. This implies $\text{poly}(|G|, |\phi|) \in \text{poly}(|G|)$.
 
-Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
+Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) \in \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
 
-Since $\Phi$ is checkable, we can then in time $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$ verify if $\Phi(G, \phi)$ holds. Thus $\Phi \in \text{NP}$.
+Since $\Phi$ is checkable, we can then in time $\text{poly}(|G|, |\phi|) \in \text{poly}(|G|)$ verify if $\Phi(G, \phi)$ holds. Thus $\Phi \in \text{NP}$.
 \end{proof}
 
 Now we just have to prove the following lemma, and the original question will be answered as a direct result:\\
