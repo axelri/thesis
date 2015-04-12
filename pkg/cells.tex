@@ -141,3 +141,27 @@
     \ponemid{#1}{#2+18}
     \wellclosed{#1}{#2+20}
 }
+
+\newcommand{\stopb}[2]
+{
+    \cellw{#1}{#2}
+    \cellb{#1+1}{#2}
+    \cellb{#1}{#2+1}
+    \cellw{#1+1}{#2+1}
+}
+
+\newcommand{\ptwoopen}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \ponemid{#1}{#2+2}
+    \ponemid{#1}{#2+4}
+    \wellopen{#1}{#2+6}
+}
+
+\newcommand{\ptwoclosed}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \ponemid{#1}{#2+2}
+    \ponemid{#1}{#2+4}
+    \wellclosed{#1}{#2+6}
+}
