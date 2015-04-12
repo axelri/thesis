@@ -1,6 +1,6 @@
 \subsubsection{The initial gameboard}
 
-The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance is pictured in~\autoref{fig:initial}. It consists of two identical structures which will from here on be referred to as ``wells''. From the figure we can deduce that $B$ is a $2 \left( \sum P + K + 1 \right) \times 10$-sized gameboard.
+The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance is pictured in~\autoref{fig:initial}. It consists of two identical structures which will from here on be referred to as ``wells''. From the figure we can deduce that $B$ is a $2 \left( \sum Q + K + 1 \right) \times 10$-sized gameboard.
 
 \begin{figure}[H]
     \centering
@@ -14,7 +14,7 @@ The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance
         \draw[dashed] (-1, 12) -- (11, 12);
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 0) -- (0, 10) node [left, black,midway,xshift=-0.5cm]
-        {\Huge $2 \left( \sum P + K \right)$ rows};
+        {\Huge $2 \left( \sum Q + K \right)$ rows};
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 10) -- (0, 12) node [left, black,midway,xshift=-0.5cm]
         {\Huge 2 rows};
@@ -32,9 +32,9 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
 \begin{itemize}
 \item The bottom section consists of rows in the interval $\left[ 1, 2 \left( K+1 \right) \right]$. In this section, column 1 and 2 is checkered, column 3 consists of white cells, and column 4 consists of black cells.
 
-\item The middle section consists of rows in the interval $\left[ 2 \left( K+1 \right) +1, 2 \left( K-1 + \sum P \right) \right]$. In this section, column 1 to 3 is checkered, and column 4 consists of black cells.
+\item The middle section consists of rows in the interval $\left[ 2 \left( K+1 \right) +1, 2 \left( K-1 + \sum Q \right) \right]$. In this section, column 1 to 3 is checkered, and column 4 consists of black cells.
 
-\item The top section consists of the rows in the interval $\left[2 \left( K-1 + \sum P \right) +1, 2 \left( K + \sum P \right) \right]$. In this section columns 2 and 3 are empty. Column 1 consists of white cell in the bottom row, and one white cell in the top row. Column 4 consists of two white cells.
+\item The top section consists of the rows in the interval $\left[2 \left( K-1 + \sum Q \right) +1, 2 \left( K + \sum Q \right) \right]$. In this section columns 2 and 3 are empty. Column 1 consists of white cell in the bottom row, and one white cell in the top row. Column 4 consists of two white cells.
 
 \end{itemize}
 
@@ -61,18 +61,18 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 6) -- (0, 14) node [left, align=right,black,midway,xshift=-1cm]
         {\huge Middle section \\ \\
-         \huge $2 \sum P$ rows};
+         \huge $2 \sum Q$ rows};
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 14) -- (0, 16) node [left, align=right,black,midway,xshift=-1cm]
         {\huge Top section};
         \draw (3.5, 0.5) -- (7, 0.5) node [right, black, xshift=1cm] 
         {\huge row 1};
         \draw (3.5, 6.5) -- (7, 6.5) node [right, black, xshift=1cm, yshift=-1.5cm]
-        {\huge row $2 \left( K+1 \right)$};
+        {\huge row $2 \left( K-1 \right)$};
         \draw (3.5, 5.5) -- (7, 5.5) node [right, black, xshift=1cm, yshift=1.5cm]
-        {\huge row $2 \left( K+1 \right) +1$};
+        {\huge row $2 \left( K-1 \right) +1$};
         \draw (3.5, 13.5) -- (7, 13.5) node [right, black, xshift=1cm]
-        {\huge row $2 \left( K-1+ \sum P \right)$};
+        {\huge row $2 \left( K-1+ \sum Q \right)$};
     \end{tikzpicture}
     }
     \caption{The well structure}
