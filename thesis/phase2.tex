@@ -1,0 +1,59 @@
+\subsubsection{Phase 2}
+In this phase a single $\mathbf{X}_H$ block is generated. From the invariants presented in~\ref{subsub:phaseone} we know that the top of the two wells must look one of the two cases in~\autoref{fig:openclosed}. Thus the only non-losing option is to place the $\mathbf{X}_H$ block in such a way that it closes one of the wells permanently. Note that if any well was permanently closed before this phase, this placement renders both of the wells permanently closed, making it impossible to clear any more cells during the game.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.35\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \ptwoclosed{0}{0}
+            \stopb{1}{8}
+            \draw[dashed] (0, 0) -- (0, 10);
+            \draw[dashed] (5, 0) -- (5, 10);
+            \draw[->, line width=5pt] (6, 5) -- (9, 5);
+            \ptwoclosed{10}{0}
+            \draw[dashed] (10, 0) -- (10, 10);
+            \draw[dashed] (15, 0) -- (15, 10);
+            \stopb{11}{6}
+            \end{tikzpicture}
+        }
+        \caption{}
+    \end{subfigure}
+    \hspace{0.05\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \ptwoopen{0}{0}
+            \stopb{2}{8}
+            \draw[dashed] (0, 0) -- (0, 10);
+            \draw[dashed] (5, 0) -- (5, 10);
+            \draw[->, line width=5pt] (6, 5) -- (9, 5);
+            \ptwoopen{10}{0}
+            \stopb{12}{6}
+            \draw[dashed] (10, 0) -- (10, 10);
+            \draw[dashed] (15, 0) -- (15, 10);
+            \end{tikzpicture}
+        }
+        \caption{}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.35\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \ptwoopen{0}{0}
+            \stopb{3}{8}
+            \draw[dashed] (0, 0) -- (0, 10);
+            \draw[dashed] (5, 0) -- (5, 10);
+            \draw[->, line width=5pt] (6, 5) -- (9, 5);
+            \ptwoopen{10}{0}
+            \stopb{13}{6}
+            \draw[dashed] (10, 0) -- (10, 10);
+            \draw[dashed] (15, 0) -- (15, 10);
+            \end{tikzpicture}
+        }
+        \caption{}
+    \end{subfigure}
+
+    \caption{Possible cases in phase 2}
+    \label{fig:placement}
+\end{figure}
