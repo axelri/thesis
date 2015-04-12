@@ -165,3 +165,12 @@
     \ponemid{#1}{#2+4}
     \wellclosed{#1}{#2+6}
 }
+
+\newcommand{\pthreeone}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \ponemid{#1}{#2+2}
+    \ponemid{#1}{#2+4}
+    \cellw{#1}{#2+6}
+    \cellb{#1}{#2+7}
+}
