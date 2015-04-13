@@ -91,6 +91,27 @@ This invariants are pictured in~\autoref{fig:invariantsfive}
     \label{fig:invariantsfive}
 \end{figure}
 
+Now consider when all blocks has been placed. Then we have $i = \sum M_w -2$ and the gameboard will appear like in~\autoref{fig:afterplace}. The interval in invariant 4 will completely disappear and the terrain will be completely checkered apart from the interval mentioned in invariant 3.
+
+Now only three posibilites exist. We will consider how many cells can be cleared in each instance:
+
+\begin{enumerate}
+\item $K < \sum M_w$ 
+
+    The bottom section is exhausted, therefore all the white cells in column 3 and all the black cells in column 4 are cleared. However, $\epsilon = M_w - K$ $\mathbf{LB}$ blocks will be placed which 
+    \begin{itemize}
+    \item Does not clear any black cells, since there aren't any left to match with in column 4.
+    \item Does not clear any white cells, since there aren't left in column 3 to match those in column 4.
+    Hence we have only cleared $8 (M_w-2-\epsilon)$ cells.
+    \end{itemize}
+\item $K > \sum M_w$
+
+    The bottom section is not exhausted. Therefore $\epsilon = K - M_w$ $\mathbf{LB}$ will be placed which clears 4 black cells, but not 4 white cells. Hence we have only cleared $8 (M_w - 2 -\epsilon) + 4 \epsilon$ = $8 (M_w - 2 - 0.5 \epsilon)$ cells.
+\item $K = \sum M_w$
+
+    The bottom section is exhausted exactly when the final block is placed. This means that every placed $\mathbf{LB}$ block has cleared 4 black cells and 4 white cells. Hence we have cleared $8 (M_w - 2)$ cells, the maximum amount.
+\end{enumerate}
+
 \begin{figure}[H]
     \centering
     \resizebox{!}{0.3\paperheight}{
@@ -132,7 +153,7 @@ This invariants are pictured in~\autoref{fig:invariantsfive}
         {\huge row $2 \left( \sum Q + K - M_w - 1 \right)+1$};
 
         \draw (3.5, 13.5) -- (7, 13.5) node [right, black, xshift=1cm] 
-        {\huge row $2 \left( \sum Q + K - M_q + 1 \right)$};
+        {\huge row $2 \left( \sum Q + K - M_w + 1 \right)$};
 
         \draw (3.5, 18.5) -- (7, 18.5) node [right, black, xshift=1cm] 
         {\huge row $2 \left( \sum Q + K \right)$};
@@ -141,3 +162,10 @@ This invariants are pictured in~\autoref{fig:invariantsfive}
     \caption{Gameboard after each block has been placed}
     \label{fig:afterplace}
 \end{figure}
+
+Since only the maximum amount of cells can be cleared if $K = M_w$, we have proved the the following theorem: \\
+
+\begin{thm}
+\label{thm:nphard}
+The (offline, no-rotation, acyclic) k-cleared-cells problem is NP-hard.
+\end{thm}
