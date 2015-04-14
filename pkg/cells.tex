@@ -158,6 +158,14 @@
     \wellopen{#1}{#2+6}
 }
 
+\newcommand{\ptwoopenspec}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \topblock{#1}{#2+2}
+    \topblock{#1}{#2+4}
+    \wellopen{#1}{#2+6}
+}
+
 \newcommand{\ptwoclosed}[2]
 {
     \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
@@ -171,6 +179,18 @@
     \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
     \ponemid{#1}{#2+2}
     \ponemid{#1}{#2+4}
+    \cellw{#1}{#2+6}
+    \cellb{#1}{#2+7}
+}
+
+\newcommand{\pthreeonespec}[2]
+{
+    \draw[dotted] (#1+2, #2) -- (#1+2, #2+2);
+    \topblock{#1}{#2+2}
+    \stripew{#1}{#2+4}
+    \cellb{#1}{#2+5}
+    \cellw{#1+1}{#2+5}
+
     \cellw{#1}{#2+6}
     \cellb{#1}{#2+7}
 }
