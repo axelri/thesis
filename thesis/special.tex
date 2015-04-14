@@ -1,11 +1,49 @@
-\subsection{The special case $K = 1$}
+\subsubsection{The special case $K = 1$}
 The only possible solution to the \textit{Subset sum} instance $\langle Q = \{q_1, \ldots, q_a\}, 1 \rangle$ is $S = \{1\}$, since any other possible element of $Q$ is too large. Knowing this, handling this special case is an easy task. A $2a+2 \times 2$ empty gameboard is created. Then any element $q_i$ is transformed into a $\mathbf{X}$ block if $q_i \not = 1$, or into a $\mathbf{MW}$ block if $q_i = 1$. Dropping the blocks and fixing them at the bototm is the only allowed operation in this gameboard. Since the $\mathbf{X}$ blocks will always create alternating terrain, cells are only cleared when a $\mathbf{MW}$ block is placed. In a $\mathbf{MW}$ block is placed, 4 cells are cleared in total, otherwise no cells are cleared during in the game.
+
+Thus there is a trajectory sequence $\phi$ that clears at least 4 cells in $G$, if and only if the \textit{Subset sum} instance $\langle Q, 1 \rangle$ has a solution. The reduction therefore holds for $K = 1$.
 
 \begin{figure}[H]
     \centering
-    \resizebox{!}{0.2\paperheight}{
+    \resizebox{!}{0.18\paperheight}{
     \begin{tikzpicture}
         \specialboard{0}{0}
+        \draw[dashed] (-1, 0) -- (2, 0);
+        \draw[dashed] (-1, 6) -- (2, 6);
+        \draw[dashed] (-1, 8) -- (2, 8);
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 0) -- (0, 6) node [left,align=right,black,midway,xshift=-1cm]
+        {\huge $2a$ rows};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 6) -- (0, 8) node [left,align=right,black,midway,xshift=-1cm]
+        {\huge $2$ rows};
+        \draw [decorate,decoration={mirror,brace,amplitude=10pt},xshift=0pt,yshift=0pt]
+        (0, 0) -- (2, 0) node [below,align=right,black,midway,yshift=-0.5cm]
+        {\huge $2$ columns};
+
     \end{tikzpicture}
     }
+    \caption{Initial gameboard for $K=1$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.10\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \lumx{0}{0}
+            \end{tikzpicture}
+        }
+        \caption{$q_i \not = 1$}
+    \end{subfigure}
+    \hspace{0.02\textwidth}
+    \begin{subfigure}[b]{0.10\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \lummonowhite{0}{0}
+            \end{tikzpicture}
+        }
+        \caption{$q_i = 1$}
+    \end{subfigure}
+    \caption{Block transformations for $q_i$}
 \end{figure}
