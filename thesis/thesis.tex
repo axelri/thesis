@@ -7,6 +7,7 @@
 \usepackage[inner=3cm,top=3cm,outer=3cm,bottom=3cm]{geometry}
 \usepackage[parfill]{parskip}
 
+\usepackage[toc,page]{appendix}
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -63,4 +64,9 @@
 \input{thesis/result.tex}
 \input{thesis/discussion.tex}
 \printbibliography
+\newpage
+\begin{appendices}
+\input{thesis/appendix.tex}
+\end{appendices}
+
 \end{document}

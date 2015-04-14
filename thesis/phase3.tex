@@ -1,4 +1,5 @@
 \subsubsection{Phase 3}
+\label{phase3}
 
 In this phase the sequence $\left( \mathbf{MB}, \mathbf{MW}, \mathbf{X} \right)$ is generated. According to the reasoning in~\nameref{subsub:phasetwo} the game must either be in an unplayable state or be in a state such that one well is permanently closed and the other well has the appearance pictured in~\autoref{fig:openclosed}. The well that is not permanently closed can thus be in one of two possible states. For each case there is exactly one way of placing the block sequence such that this well is not also permanently closed. Placing the blocks in this way will clear 10 cells regardless of case.
 
@@ -76,4 +77,4 @@ In this phase the sequence $\left( \mathbf{MB}, \mathbf{MW}, \mathbf{X} \right)$
     \label{fig:placement}
 \end{figure}
 
-In \autoref{fig:placementc} we see the special case where the player has placed all $\mathbf{H}$ in the same well and then closed the well. Intuitively this might look like it would become a problem for this reduction's soundness. However the player won't be able to clear enough cells for this to become a ``yes''-instance. For a proof that his is true, please see \textbf{TODO: reference appendix with cool proof of dis shit}
+In \autoref{fig:placementc} we see the special case where the player has placed all $\mathbf{H}$ in the same well and then closed the well. This gameboard does not allow for an optimal clearing of cells. For a proof of this, please see Appendix \ref{specialcasereduction}
