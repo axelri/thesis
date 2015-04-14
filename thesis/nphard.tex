@@ -5,13 +5,14 @@ We prove that k-cleared-cells is NP-hard by constructing a reduction from the \t
 The goal of each part is to prove the following: 
 
 \begin{quote}
-Given a \textit{Subset sum} instance $Q = \{q_1, \ldots, q_a\}, K \in \{1\}$ respectively $\{2, 3, 4, \ldots \}$, there exists a solution $S = \{s_1, \ldots, s_b \} \subseteq Q, \sum S = K$ if and only if there exists a trajectory sequence $\phi$ which clears $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
+Given a \textit{Subset sum} instance $Q = \{q_1, \ldots, q_a\}, K \in \mathbb{N}$ there exists a solution $S = \{s_1, \ldots, s_b \} \subseteq Q, \sum S = K$ if and only if there exists a trajectory sequence $\phi$ which clears at least $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
 \end{quote}
 
+For the general case $K > 1$, we set $k = 8a + 5 \sum Q + 4 + 4K$. For the special case $K = 1$, we set $k = 4$. The block states $P_i$ in $G$ are determined from $Q$ and $K$. This transformation is described in detail in later sections. 
 \input{thesis/gameboard.tex}
 
-The following lemma will be used during the whole reduction and explains an important property of the terrain we use in the initial gameboard.
-\\
+The following lemma will be used during the whole reduction and explains an important property of the terrain we use in the initial gameboard.\\
+
 \begin{lem}
 \label{lem:alternatingrows}
 A column with an interval of alternating rows may only clear the top or bottom cell. This is only possible if there is a cell in the column not part of the interval with the same color adjacent to the bottom respectively the top cell.

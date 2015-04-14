@@ -165,7 +165,7 @@ Now only three posibilites exist. We will consider how many cells can be cleared
 
 \subsection{Summing the phases}
 
-When all the phases are done, the maximum amount of cleared cells boils down to three possible cases. Let $\Delta = |\sum M_w - K|$, and $C$ be the maximum amount of cleared cells. We then obtain the following equations:
+When all the phases are done, the maximum amount of cleared cells is equal to one of three equations. Let $\Delta = |\sum M_w - K|$, and $C$ be the maximum amount of cleared cells. The following is obtained:
 
 \begin{equation} \tag{$K < \sum M_w$}
 \begin{split}
@@ -186,11 +186,11 @@ C & = 8a + 5 \sum Q + 4 \sum M_w + 4 - 4 \Delta \\
 \begin{equation} \tag{$K = \sum M_w$}
 \begin{split}
 C & = 8a + 5 \sum Q + 4 \sum M_w + 4 \phantom{- 8 \Delta} \\
-& = 8a + 5 \sum Q + 4 \sum M_w + 4 + 4K \phantom{8 \left(\sum M_w + K \right)}
+& = 8a + 5 \sum Q + 4 + 4K \phantom{8 \left(\sum M_w + K \right)}
 \end{split}
 \end{equation}
 
-In the case of $K < \sum M_w$, it is clear that $\left(2K - \sum M_w \right) < K$. In case of $K > \sum M_w$, is is clear that $\left(2 \sum M_w - K \right) < K$. Hence the case $K = \sum M_w$ yields the maximum possible amount of cleared cells.
+In the case of $K < \sum M_w$, it is clear that $\left(2K - \sum M_w \right) < K$. In case of $K > \sum M_w$, is is clear that $\left(2 \sum M_w - K \right) < K$. Hence $8a + 5 \sum Q + 4 + 4K$ is the maximum amount of cleared cells in this game. This amount is only cleared when $K = \sum M_w$.
 
 Since $K = \sum M_w$ if and only if there exists a solution $S = \{s_1, \ldots, s_b \} \subseteq Q, \sum S = K$ to the \textit{Subset sum} instance $\langle Q, K \rangle$, we have proved the the following theorem: \\
 
