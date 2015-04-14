@@ -49,8 +49,33 @@ In this phase the sequence $\left( \mathbf{MB}, \mathbf{MW}, \mathbf{X} \right)$
         \caption{}
     \end{subfigure}
 
+    \begin{subfigure}[b]{0.8\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \ptwoopen{0}{0}
+            \lummonoblack{2}{8}
+            \draw[dashed] (0, 0) -- (0, 10);
+            \draw[dashed] (5, 0) -- (5, 10);
+            \draw[->, line width=5pt] (6, 5) -- (9, 5);
+            \pthreeone{10}{0}
+            \draw[dashed] (10, 0) -- (10, 10);
+            \draw[dashed] (15, 0) -- (15, 10);
+            \lummonowhite{11}{8}
+            \draw[->, line width=5pt] (16, 5) -- (19, 5);
+            \pthreeone{20}{0}
+            \stopb{21}{8}
+            \draw[dashed] (20, 0) -- (20, 10);
+            \draw[dashed] (25, 0) -- (25, 10);
+            \end{tikzpicture}
+        }
+        \caption{}
+        \label{fig:placementc}
+    \end{subfigure}
+
     \caption{Block placement in phase 3}
     \label{fig:placement}
 \end{figure}
+
+In \autoref{fig:placementc} we see the special case where the player has placed all $\mathbf{H}$ in the same well and then closed the well. Intuitively this might look like it would become a problem for this reduction's soundness. However the player won't be able to clear enough cells for this to become a ``yes''-instance. For a proof that his is true, please see \textbf{TODO: reference appendix with cool proof of dis shit}
 
 At the end of this phase, at most $8a + \sum Q + 10$ cells have been cleared in total.
