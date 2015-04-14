@@ -1,5 +1,5 @@
 include makeconf
-
+## Kommentar
 TFLAGS = -shell-escape -halt-on-error -file-line-error -interaction=nonstopmode
 
 SDIR = spec
