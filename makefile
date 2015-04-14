@@ -28,7 +28,7 @@ spec.pdf: sbib
 	$(TEX) $(TFLAGS) $(SDIR)/$(SMAIN).tex
 
 clean:
-	rm -f *.aux *.log *.xml *.blg *.bcf *.bbl
+	rm -f *.aux *.log *.xml *.blg *.bcf *.bbl *.out *.toc
 
 distclean: clean
 	rm -f *.pdf
