@@ -1,0 +1,20 @@
+\section{Special case of the reduction}
+\label{specialcasereduction}
+
+In \ref{phase3} we mention a special case of the reduction where the player has chosen to put all $\mathbf{H}$ from phase 1 in the same well and then close it during phase 2. The following will show that this case can never clear enough rows to be a solution for a ``yes''-instance.
+
+\subsection{Phase 3}
+Being in the state explained above give the player a chance to clear the black cells in column 3-4 with the $\mathbf{MB}$ block clearing 6 cells in total. The player can also choose to clear the white cell in column 2 with the remaining $\mathbf{MW}$ however this is irrelevant to the question whether this special case can clear enough rows to show a false ``yes''-instance since it clears the same amount of cells and the gameboard will have the same terrain.
+
+Because of the two extra cells cleared in phase 3 the total amount of cells cleared after phase 3 is at most $8a + \sum Q + 12$ cells.
+
+\subsection{Phase 4 \& Phase 5}
+
+Phase 4 \& Phase 5 can be seen as the same phase when looking at the this special case. During this phase the player place $\sum Q - 1$ $\mathbf{LB}$ blocks on the gameboard. To maximize the amount of cells cleared it is required to place them in column 4-5. In column 4 there are $2 \sum \left( Q + K - 1 \right) - 1$ cells which means the maximum amount of cells cleared during this phase is $ 4 \left( \sum Q - 1 \right)$. This leaves $2K-1$ black cells in column 4.
+
+Thus the maximum amount of cleared cells in the special case is
+
+\begin{align*}
+  & 8a + \sum Q + 12 + 4 \left( \sum Q - 1 \right) \\
+= \; & 8a + 5 \sum Q + 8
+\end{align*}
