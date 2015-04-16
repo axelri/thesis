@@ -7,9 +7,9 @@ A reduction is an algorithm used to solve one problem with another. This report 
 A reduction from any decision problem $A$ to any other decision problem $B$ is valid if each yes-instance of $A$ yields a yes-instance of $B$, and each no-instance of $A$ yields a no instance of $B$. If the reduction runs in polynomial time, $B$ must be at least as hard as $A$ to solve.\cite{reduction}
 
 \subsection{NP and PSPACE}
-NP is the complexity class of all decision problems where a yes-instance can be verified in polynomial time. If it is possible to reduce all problems in NP to a certain problem, that problem is said to be NP-hard. A problem is referred to as a NP-complete problem if it is shown that it is both in NP and NP-hard. From this follows that if it is possible to reduce a NP-complete problem to some problem in NP using polynomial time, that problem is NP-complete as well.
+\textit{NP} is defined as the set of all decision problems where a yes-instance can be verified in polynomial time. If it is possible to reduce all problems in NP to a particular problem, that problem is defined to be \textit{NP-hard}. A problem is defined to be \textit{NP-complete} if it is both in NP and NP-hard. From this follows that if there exists a polynomial reduction from any NP-complete problem to some problem in NP, that problem is NP-complete as well. This is a commonly used method when proving NP-completeness for new decision problem.
 
-PSPACE is the complexity class of all decision problems that can be solved by a Turing machine in a polynomial amount of memory space. Similar to NP-complete, a problem is PSPACE-complete if it is in PSPACE and all other problems in PSPACE can be reduced to the problem.
+PSPACE is the set of all decision problems that can be solved by a Turing machine in a polynomial amount of memory space. Similar to NP-complete, a problem is PSPACE-complete if it is in PSPACE and all other problems in PSPACE can be reduced to the problem.
 
 \subsection{The Subset Sum problem}
 
