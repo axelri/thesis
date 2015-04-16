@@ -1,7 +1,7 @@
 \subsection{Is k-cleared-cells NP-hard?}
 \label{sub:nphard}
 
-We prove that k-cleared-cells is NP-hard by constructing a reduction from the \textit{Subset sum} problem. The reduction consists of two parts: one part which considers $K > 1$ in the given \textit{Subset sum} instance, and one part which considers the special case $K = 1$. The first part is quite complex and consists of five phases, whereas the second part is relatively straightforward.
+\textit{K-cleared-cells is NP-hard} is proven to be NP-hard by constructing a reduction from the \textit{Subset sum} problem. The reduction consists of two parts: one part which considers $K > 1$ in the given \textit{Subset sum} instance, and one part which considers the special case $K = 1$. The first part is quite complex and consists of five phases, whereas the second part is relatively straightforward.
 
 The goal of each part is to prove the following: 
 
@@ -9,7 +9,7 @@ The goal of each part is to prove the following:
 Given a \textit{Subset sum} instance $Q = \{q_1, \ldots, q_a\}, K \in \mathbb{N}$ there exists a solution $S = \{s_1, \ldots, s_b \} \subseteq Q, \sum S = K$ if and only if there exists a trajectory sequence $\phi$ which clears at least $k$ cells in game $G$ in some instance of \textit{k-cleared-cells}.
 \end{quote}
 
-For the general case $K > 1$, we set $k = 8a + 5 \sum Q + 4 + 4K$. For the special case $K = 1$, we set $k = 4$. The block states $P_i$ in $G$ are determined from $Q$ and $K$. This transformation is described in detail in later sections. 
+For the general case $K > 1$, we set $k = 8a + 5 \sum Q + 4 + 4K$. For the special case $K = 1$, we set $k = 4$. The block states $P_i$ in $\mathcal{G}$ are determined from $Q$ and $K$. This transformation is described in detail in later sections. 
 
 \input{thesis/gameboard.tex}
 

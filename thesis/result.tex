@@ -1,7 +1,7 @@
 \section{Result}
 
 \subsection{On the size of the problem input}
-The input to an instance of the \textit{k-cleared-cells} problem is the game $\mathcal{G} = (B_0, P_1, \ldots, P_p)$. In order to analyze the verifiability of a given solution in polynomial time, we must begin by examining the size of $|\mathcal{G}|$. The game contains a gameboard $B_0$ of size $|B| = mn$, and $p$ block states which are all of constant size. Hence of the size of all the blocks state are $O(p)$. Thus $|\mathcal{G}| \in O(p \cdot |B|)$.
+The input to an instance of the \textit{k-cleared-cells} problem is the game $\mathcal{G} = (B_0, P_1, \ldots, P_p)$. In order to analyze the verifiability of a given solution in polynomial time, we must begin by examining the size of $|\mathcal{G}|$. The game contains a gameboard $B_0$ of size $|B| = mn$, and $p$ block states which are all of constant size. Hence the size of all the blocks state are $O(p)$. Thus $|\mathcal{G}| \in O(p \cdot |B|)$.
 
 \subsection{On the size of the problem solution}
 The solution to an instance of the \textit{k-cleared-cells} problem is the trajectory sequence $\phi=(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Since definition~\ref{defn:checkable} depends both on the size of $|\mathcal{G}|$ and $|\phi|$, examining the size of $|\phi|$ is of importance. $\phi$ consists of $p$ gameboards of size $|B| = mn$, and $p$ trajectories of unknown but finite size. We therefore define $C$ to be the upper bound of the amounts of operations in any trajectory in $\phi$. Thus $|\phi| \in O(p \cdot |B| \cdot C)$.

@@ -43,7 +43,7 @@ The objective k-cleared-cells is checkable and acyclic.
 \begin{proof}
 The objective is acyclic because it only depends on fixed block state at the end of each trajectory, since the fix operation is the only way to trigger clearing of cells and thereby changes to the gameboard. The path taken in the trajectory is therefore irrelevant, as long as its legal. 
 
-One can count the total amount of cleared cells simply by scanning the gameboard after each fix loop iteration, and then summing the results of each iteration. As presented in the proof for lemma~\ref{lem:legality}, this loop runs in $O(|B|^2)$ time, and the counting of cleared cells can be done in $O(|B|)$. In total the summing can therefore be done in $O(|B|^3 \cdot |\phi|) = \text{poly}(|G|, |\phi|)$ time. Thus the objective is checkable.
+One can count the total amount of cleared cells simply by scanning the gameboard after each fix loop iteration, and then summing the results of each iteration. As presented in the proof for lemma~\ref{lem:legality}, this loop runs in $O(|B|^2)$ time, and the counting of cleared cells can be done in $O(|B|)$. In total the summing can therefore be done in $O(|B|^3 \cdot |\phi|) = \text{poly}(|\mathcal{G}|, |\phi|)$ time. Thus the objective is checkable.
 \end{proof}
 
 This naturally leads us to the following corollary:\\

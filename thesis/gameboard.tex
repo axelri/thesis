@@ -65,6 +65,9 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
         \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
         (0, 14) -- (0, 16) node [left, align=right,black,midway,xshift=-1cm]
         {\huge Top section};
+        \draw [decorate,decoration={brace,amplitude=10pt},xshift=-12pt,yshift=0pt]
+        (0, 16) -- (0, 18) node [left, align=right,black,midway,xshift=-1cm]
+        {\huge Initial block row};
         \draw (3.5, 0.5) -- (7, 0.5) node [right, black, xshift=1cm] 
         {\huge row 1};
         \draw (3.5, 6.5) -- (7, 6.5) node [right, black, xshift=1cm, yshift=-1.5cm]
@@ -81,7 +84,7 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
 
 The purpose of the well is to force the placement of blocks in play. One feature of the well structure is that if we were to drop a block with 2 black cells on the right half in column 4-5, the black right half would drop down and instantly clear itself and the two bottommost cells in column 4. The terrain in column 4 would then collapse, making place for a new block to be placed in the same manner.
 
-This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a losing state. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in this reduction. We therefore provide three definitions regarding this to aid in the proof. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. If a game is \textit{blocked}, the no blocks can be place anywhere in the well without yielding a losing state. If a well is blocked, it is also impossible to unblock it during the game. The appearance of the top section corresponding to the open and closed well states is pictured in~\autoref{fig:openclosed}. The reason for this will later become apparent.
+This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a losing state. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in this reduction. We therefore provide three definitions regarding this to aid in the proof. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. If a game is \textit{blocked}, the no blocks can be place anywhere in the well without yielding a losing state. If a well is blocked, it is also impossible to unblock it during the game. The appearances of the top section for all open and closed well states is the ones depicted in in~\autoref{fig:openclosed}. The appearance of the top section in a blocked well may however appear differently. The reason for this will later become apparent.
 
 \begin{figure}[H]
     \centering
@@ -101,6 +104,16 @@ This feature cannot be utilized in the default well state though, since fixing a
             \end{tikzpicture}
         }
         \caption{Open}
+    \end{subfigure}
+    \hspace{0.02\linewidth}
+    \begin{subfigure}[b]{0.15\linewidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+                \topclosed{0}{0}
+                \lumx{1}{6}
+            \end{tikzpicture}
+        }
+        \caption{Blocked}
     \end{subfigure}
     \caption{Open and closed wells}
     \label{fig:openclosed}
