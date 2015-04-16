@@ -27,7 +27,7 @@ For any checkable acyclic objective $\Phi$ in Lumines, $\Phi \in \text{NP}$.
 \begin{proof}
 We are given a Lumines game $G = (B_0, P_1, \ldots, P_p)$ and a acyclic trajectory sequence $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$. Let $B_i$ be $m \times n$ gameboard.
 
-Since $\phi$ is acyclic, each of its $p$ trajectories can not contain more than $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| \in O(p \cdot |B|) \subset O(|G|)$. This implies $\text{poly}(|G|, |\phi|) \in \text{poly}(|G|)$.
+Since $\phi$ is acyclic, each of its $p$ trajectories can not contain more than $(m-1)(n-1) + 1 \in O(|B|)$ states, unfixed once in each possible position and fixed in one final position. Thus $|\phi| \in O(p \cdot |B|) \subset O(|G|)$. This implies $\text{poly}(|G|, |\phi|) = \text{poly}(|G|)$.
 
 Checking the validity of the $\phi$ can be done in $\text{poly}(|G|, |\phi|) \in \text{poly}(|G|)$ according to lemma~\ref{lem:legality}.
 
