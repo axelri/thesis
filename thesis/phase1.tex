@@ -17,7 +17,7 @@ In this phase we transform every $q_i \in Q$ to sequences of game blocks. These 
     \end{tikzpicture}
     }
     \caption{Transformation of \textit{Subset sum} element $q_i$}
-    \label{fig:wells}
+    \label{fig:transforms}
 \end{figure}
 
 When placing the first block it is evident that we have only two possibilities. Either we place the $\mathbf{H}_H$ block in column 2-3 of  well 1, or in the respective columns of well 2. This transforms the chosen well from a closed to an open state. We then proceed to placing the middle $q_i$ blocks. When deciding the outcome of these placements the following lemmas are of use:\\
@@ -46,19 +46,21 @@ The following holds for each column:
 
 Column 1 is initially filled completely with alternating rows except the two top rows that would result in an instant losing state. From lemma \ref{lem:alternatingrows} it is known that a column with an interval of alternating rows may only clear the bottom or top cell in the interval. Thus it is impossible to clear any cell in the column without putting the game in a losing state. 
 
-Column 2 is initially filled beneath row $2 \left( \sum Q + K + 1 \right) - 3$ with alternating rows and forms a checkered terrain with column 3 in the interval $\left[ 2 \left( K - 1 \right) + 1, 2 \left( \sum Q + K + 1 \right) - 3 \right]$. Because column 2 has alternating rows there is no way to clear rows from anywhere except the top of the column. It is known that column 1 can not be cleared which leaves two requirements to clear any of the cells and lower the height of column 2. Column 3 must leave place for a white cell at $2 \left( \sum Q + K + 1 \right) - 4$ and a fitting block must be dropped to create a white $2 \times 2$ block. Both of these requirements are unfulfilled but we will only prove the first requirement.
+Column 2 is initially filled beneath row $2 \left( \sum Q + K + 1 \right) - 3$ with alternating rows. Because column 2 has alternating rows there is no way to clear rows from anywhere except the top of the column. It is known that column 1 can not be cleared which leaves two requirements to clear any of the cells and lower the height of column 2. Column 3 must leave place for a white cell at $2 \left( \sum Q + K + 1 \right) - 4$ and a fitting block must be dropped to create a white $2 \times 2$ block. Both of these requirements are unfulfilled but we will only prove the first requirement.
 
-Column 3 is initially filled beneath row $2 \left( \sum Q + K + 1 \right) - 3$. The interval $\left[ 2 \left( K - 1 \right) + 1, 2 \left( \sum Q + K + 1 \right) - 3 \right]$ consists of alternating rows. Beneath row $2 \left( K - 1 \right) + 1$ the column is filled with white cells. In a closed well rows in column 3 can only be cleared if column 2 leaves place for a black cell and a fitting block is dropped. However it is already known that column 2 can not clear any rows if there have not been any cleared rows in column 3. The only other way column 3 can clear rows and lower its height is by clearing rows beneath $2 \left( K - 1 \right) + 1$. For this to happen there must be white cells in column 4 beneath row $2 \left( K - 1 \right) + 1$.
+Let $I$ be the interval:
+\begin{equation*}
+\left[ 2 \left( K - 1 \right) + 1, 2 \left( \sum Q + K + 1 \right) - 3 \right]
+\end{equation*}
+
+Column 3 is initially filled beneath row $2 \left( \sum Q + K + 1 \right) - 3$. The interval $I$ consists of alternating rows. Beneath row $2 \left( K - 1 \right) + 1$ the column is filled with white cells. In a closed well rows in column 3 can only be cleared if column 2 leaves place for a black cell and a fitting block is dropped. However it is already known that column 2 can not clear any rows if there have not been any cleared rows in column 3. The only other way column 3 can clear rows and lower its height is by clearing rows beneath $2 \left( K - 1 \right) + 1$. For this to happen there must be white cells in column 4 beneath row $2 \left( K - 1 \right) + 1$.
 
 Column 4 is initially filled beneath row $2 \left( \sum Q + K + 1 \right) - 3$ with black cells. To clear rows in column 4 and lower its height we need need two adjacent rows with black cells in either column 3 or column 5 somewhere beneath the same row. For this to happen in column 3, the height of column 3 needs to be reduced with at least two rows. It is known that this can only happen if there are white cells beneath row $2 \left( \sum Q + K + 1 \right) - 3$ in column 4. Thus the only way to clear rows and lower column 4's height is to have two adjecent rows in column 5 with black cells beneath row $2 \left( \sum Q + K + 1 \right) - 3$.
 
 Column 5 is initially empty. The lemma says that the column is empty as long as the well is not blocked. When the well is closed there is no way to fill any cells in the column. When the well is open we can drop half a block down column 5 by placing the given block on column 4-5. The two blocks the player can place is $\mathbf{H}$ and $\mathbf{H}_H$. Placing a $\mathbf{H}_H$ block fills column 5 but also blocks the well. Placing a $\mathbf{H}$ block will create a black block that clears the cells in column 5 and the two bottom most cells in column 4. Two white cells are placed on top of column 4 when placing the block and column 4 will therefore not lower its height unless the white cells in column 4 are cleared together with the white cells in column 3. This happens if the player places $\sum Q + 1$ $\mathbf{H}$ blocks. However the amount of $\mathbf{H}$ given during phase 1 is $\sum Q$ and will therefore not happen. For there to be any filled cells in column 5 without blocking the well the player need to place $\sum Q + K$ blocks in column 4-5 which is not possible for the same reason.
 
 Thus all parts of the lemma holds.
-
-
 \end{proof}
-
 
 \begin{figure}[H]
     \centering
