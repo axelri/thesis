@@ -69,6 +69,25 @@ A \textit{trajectory} $\tau$ of a block $P$ is a finite sequence of (legal) game
 
 A \textit{game} $(B_0, P_1, \ldots, P_p)$ is defined as an initial gameboard and a sequence of blocks to be placed by the player. A \textit{trajectory sequence} $\phi$ is a sequence $(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$ which for each $i$ the trajectory $\tau_i$ applied to the game block $P_i$ on the gameboard $B_{i-1}$ results in gameboard $B_i$. If $\phi$ contains any trajectory $\tau_q$ which triggers a game over, $\phi$ naturally terminates at $B_q$ instead of $B_p$.
 
+\subsection{Alternating rows}
+Simply put, a column contains \textit{alternating rows} in an interval if every filled cell has a different color from the adjacent cells in the same interval. A more rigorous definition is presented below.
+
+\begin{defn}
+If every cell in $\langle r, c \rangle, \; r \in \{a, \ldots, b\}, \; |b-a| \geq 2$ is filled and has one color if $r \equiv a \pmod{2}$, and another color if $r \equiv a + 1 \pmod{2}$, the interval $\left[ a, b \right]$ is said to be alternating in column $c$.
+\end{defn}
+
+\bigbreak
+
+\begin{defn}
+If every cell in $\langle r, c \rangle, \; r \in \{a, \ldots, b\}, \; |b-a| \geq 2$ is black if $r \equiv a \pmod{2}$, and white if $r \equiv a + 1 \pmod{2}$, the interval $\left[ a, b \right]$ is said to be alternating black-white in column $c$.
+\end{defn}
+
+\bigbreak
+
+\begin{defn}
+If every cell in $\langle r, c \rangle, \; r \in \{a, \ldots, b\}, \; |b-a| \geq 2$ is white if $r \equiv a \pmod{2}$, and black if $r \equiv a + 1 \pmod{2}$, the interval $\left[ a, b \right]$ is said to be alternating white-black in column $c$.
+\end{defn}
+
 \subsection{Checkable and acyclic goals}
 The notion of checkable and acyclic goals is presented in paper by \citeauthor{tetris}. These definitions will aid the proof presented later in this report. They are used in a similar manner in the original paper.\\
 
