@@ -1,6 +1,6 @@
 \subsubsection{The initial gameboard}
 
-The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance is pictured in~\autoref{fig:initial}. It consists of two identical structures which will from here on be referred to as ``wells''. From the figure we can deduce that $B$ is a $2 \left( \sum Q + K + 1 \right) \times 10$-sized gameboard.
+The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance is pictured in~\autoref{fig:initial}. It consists of two identical structures which will from here on be referred to as \textit{wells}. From the figure we can deduce that $B$ is a $2 \left( \sum Q + K + 1 \right) \times 10$-sized gameboard.
 
 \begin{figure}[H]
     \centering
@@ -30,9 +30,9 @@ The initial gameboard $B_0$ in the constructed \textit{k-cleared-cells} instance
 A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 of the well is empty, the content in the other columns depends on which section the rows are in. A well is divided into the following three sections:
 
 \begin{itemize}
-\item The bottom section consists of rows in the interval $\left[ 1, 2 \left( K+1 \right) \right]$. In this section, column 1 and 2 is checkered, column 3 consists of white cells, and column 4 consists of black cells.
+\item The bottom section consists of rows in the interval $\left[ 1, 2 \left( K+1 \right) \right]$. In this section, column 1 is alternating white-black, column 2 is alternating black-white, column 3 is white, and column 4 is black.
 
-\item The middle section consists of rows in the interval $\left[ 2 \left( K+1 \right) +1, 2 \left( K-1 + \sum Q \right) \right]$. In this section, column 1 to 3 is checkered, and column 4 consists of black cells.
+\item The middle section consists of rows in the interval $\left[ 2 \left( K+1 \right) +1, 2 \left( K-1 + \sum Q \right) \right]$. In this section, column 1 is alternating white-black, column 2 is alternating black-white, column 3 is alternating white-black and column 4 is black.
 
 \item The top section consists of the rows in the interval $\left[2 \left( K-1 + \sum Q \right) +1, 2 \left( K + \sum Q \right) \right]$. In this section columns 2 and 3 are empty. Column 1 consists of white cell in the bottom row, and one white cell in the top row. Column 4 consists of two white cells.
 
@@ -81,7 +81,7 @@ A schematic of the well structure is pictured in~\autoref{fig:wells}. Column 5 o
 
 The purpose of the well is to force the placement of blocks in play. One feature of the well structure is that if we were to drop a block with 2 black cells on the right half in column 4-5, the black right half would drop down and instantly clear itself and the two bottommost cells in column 4. The terrain in column 4 would then collapse, making place for a new block to be placed in the same manner.
 
-This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a game over. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in the reduction. We therefore define two states of the well. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. The appearance of the top section corresponding to the two well states is pictured in~\autoref{fig:openclosed}. The reason for this will later become apparent.
+This feature cannot be utilized in the default well state though, since fixing a block on the top of column 5 would result in a losing state. Would the two right white cells in the top section disappear, this feature becomes available. This characteristic of the well is heavily used in this reduction. We therefore provide three definitions regarding this to aid in the proof. If the well is \textit{closed}, placing a block in column 4-5 yields a game over, if the well is \textit{open} this placement does not yield a game over. If a game is \textit{blocked}, the no blocks can be place anywhere in the well without yielding a losing state. If a well is blocked, it is also impossible to unblock it during the game. The appearance of the top section corresponding to the open and closed well states is pictured in~\autoref{fig:openclosed}. The reason for this will later become apparent.
 
 \begin{figure}[H]
     \centering
@@ -105,3 +105,14 @@ This feature cannot be utilized in the default well state though, since fixing a
     \caption{Open and closed wells}
     \label{fig:openclosed}
 \end{figure}
+
+The following lemma will be used during the whole reduction and explains an important property of the terrain we use in the initial gameboard.\\
+
+\begin{lem}
+\label{lem:alternatingrows}
+A column with an interval of alternating rows may only have its top or bottom cell cleared. This is only possible if there is a cell in the same column which is both the same color as one of these cells and adjacent to it.
+\end{lem}
+
+\begin{proof}
+In \ref{subsub:gameplay} it is defined that for a cell to be marked and cleared its surrounding cells must be the same color. If a column has an interval of alternating rows we know that there are no two adjecent cells with the same color in that interval. Therefore the only way a cell part of the interval can be cleared is if it is directly below or above a cell not part of the interval. This leaves the top and bottom cell the only possibilities.
+\end{proof}

@@ -37,7 +37,7 @@ In the \textit{initial block state}, the block is in its base orientation unless
         \item $\frac{3 \pi}{2} = -\frac{\pi}{2}$: $\sigma_{CC}(\mathbf{c}) := (c_1\;c_4\;c_3\;c_2)$.
     \end{enumerate}
 
-    A shorthand is defined for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. For example the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$. Please note that the purpose of this definition is to aid in the proof. In this system rotation is not an allowed block manipulation during gameplay.
+    A shorthand is defined for aliasing the blocks in some rotation. For any block color $b \in \{B, W\}^4$ we define $b_{r} = \sigma_{r}(b)$. For example the monochromatic black block rotated one quarter-turn counterclockwise can be referred to as $\mathbf{MB}_{CC}$. Please note that the purpose of this definition is to aid in the proof. In this system rotation is not an allowed block opearation during gameplay.
 \end{description}
 \subsubsection{Game operations}
 \label{subsub:operations}
@@ -51,6 +51,10 @@ No operations are legal for a piece $P = (\mathbf{c}, \langle i,j \rangle, fixed
         \item A \emph{fix}. If the cells $\langle i-1, j \rangle$ or $\langle i-1, j+1 \rangle$ are filled or $i=1$ the move is legal. The new block state is $(\mathbf{c}, \langle i, j \rangle, fixed)$.
     \end{enumerate}
 
+\subsubsection{Losing state}
+\label{subsub:losing}
+At any given time, if any cells in $\{m-1, m\} \times \{1, \ldots, n\}$ are filled the game is in a losing state and no further operations are valid.
+
 \subsubsection{Gameplay}
 \label{subsub:gameplay}
 
@@ -59,14 +63,14 @@ A \textit{trajectory} $\tau$ of a block $P$ is a finite sequence of (legal) game
     \begin{enumerate}
             \item $B'$ is initially $B$ with the cells of block $P$ filled.
             \item If the block is fixed, any column of the block which is not directly above a filled cell will continue to drop until it reaches either a filled cell or the bottom row. $B'$ is the result of this fix operation.
-            \item If the block is fixed and the block position is $\langle m-1, j\rangle$, any $j \in \{1, \ldots, n-1\}$, a \textit{game over} is triggered.
+            \item If the block is fixed and the block position is $\langle m-1, j\rangle$, any $j \in \{1, \ldots, n-1\}$, the game enters a losing state as described in \ref{subsub:losing}.
             \item If any filled cell $\langle i,j \rangle$ in $B'$ and its surrounding cells $\langle i+1,j+1 \rangle$, $\langle i, j+1 \rangle$ and $\langle i+1, j \rangle$ are the same color, these cells are marked and cleared instantly. Any filled cells in $B'$ not directly above other filled cells or the bottom row now drops until they are. This stage is repeated until a further step would not result in any changes on the gameboard. $B'$ is now the results of these steps.
     \end{enumerate}
 
 A \textit{game} $(B_0, P_1, \ldots, P_p)$ is defined as an initial gameboard and a sequence of blocks to be placed by the player. A \textit{trajectory sequence} $\phi$ is a sequence $(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$ which for each $i$ the trajectory $\tau_i$ applied to the game block $P_i$ on the gameboard $B_{i-1}$ results in gameboard $B_i$. If $\phi$ contains any trajectory $\tau_q$ which triggers a game over, $\phi$ naturally terminates at $B_q$ instead of $B_p$.
 
 \subsection{Checkable and acyclic goals}
-The notion of checkable and acyclic goals is presented in \cite{tetris}. These definitions will aid the proof presented later in this report. It is used in a similar manner in the original paper.\\
+The notion of checkable and acyclic goals is presented in paper by \citeauthor{tetris}. These definitions will aid the proof presented later in this report. They are used in a similar manner in the original paper.\\
 
 \begin{defn}
 \label{defn:checkable}
@@ -80,11 +84,10 @@ We say that an objective function $\Phi$ is \textit{acyclic} when, for all games
 \end{defn}
 
 \subsection{The k-cleared-cells problem}
-The main Lumines goal this paper is concerned with is the problem of maximizing the amount of cleared cells given a particular game. Naturally the domain of the problem is the simplified version of Lumines previously presented in~\ref{sub:formal}. Furthermore we add the constraint no block in play can visit a single position more than once. This effectively turns the k-cleared-cells-problem into an acyclic objective function. Since in the video game blocks drop at a fast speed, this constraint brings the problem domain closer to the actual game.
+The Lumines goal this paper is concerned with is the problem of maximizing the amount of cleared cells given a particular game. Naturally the domain of the problem is the simplified version of Lumines previously presented in~\ref{sub:formal}. Furthermore we add the constraint that no block in play can visit a single position more than once. This effectively turns the k-cleared-cells-problem into an acyclic objective function. Since in the video game blocks drop at a fast speed, this constraint brings the problem domain closer to the actual game.
 
 The problem is formally defined as follows:
 
 \begin{quote}
 \textbf{The (offline, no-rotation, acyclic) k-cleared-cells problem}: Given a Lumines game $G=(B_0, P_1, \ldots, P_p)$ and a goal $k \in \mathbb{N}$, does there exist an acyclic trajectory sequence $\phi=(B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$, such that when $\phi$ is applied to $G$ at least $k$ cells are cleared in total?
 \end{quote}
-
