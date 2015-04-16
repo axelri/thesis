@@ -1,6 +1,6 @@
 \subsubsection{Phase 1}
 \label{subsub:phaseone}
-In this phase we transform every $q_i \in Q$ to sequences of game blocks. These sequences will be part of the block states $P_1, \ldots P_n$ in the constructed \textit{k-cleared-cells} instance. The transformation is done by creating a sequence of 1 $\mathbf{H}_{H}$, $q_i$ $\mathbf{H}$ and 1 $\mathbf{H}_H$ blocks (in their initial state) for each give $q_i$.
+In this phase we transform every $q_i \in Q$ to sequences of game blocks. These sequences will be part of the block states $P_1, \ldots P_n$ in the game $\mathcal{G}$ of the constructed \textit{k-cleared-cells} instance. The transformation is done by creating a sequence of 1 $\mathbf{H}_{H}$, $q_i$ $\mathbf{H}$ and 1 $\mathbf{H}_H$ blocks (in their initial state) for each given $q_i$.
 
 \begin{figure}[H]
     \centering
@@ -20,26 +20,25 @@ In this phase we transform every $q_i \in Q$ to sequences of game blocks. These 
     \label{fig:wells}
 \end{figure}
 
-When placing the first block it is evident that we have only two choices: place the $\mathbf{H}_H$ block column 2-3 of any well. This transform the chosen well from a closed to an open state. We then proceed to placing the middle $q_i$ blocks. When deciding the outcome of these placements the following lemmas are of use:\\
-
+When placing the first block it is evident that we have only two possibilities. Either we place the $\mathbf{H}_H$ block in column 2-3 of  well 1, or in the respective columns of well 2. This transforms the chosen well from a closed to an open state. We then proceed to placing the middle $q_i$ blocks. When deciding the outcome of these placements the following lemmas are of use:\\
 
 \begin{lem}
 \label{lem:permclose}
-In phase 1, placing a $\mathbf{H}$ block in any other column than 4-5 in a well will make the same well permanently closed.
+In phase 1, placing a $\mathbf{H}$ block in any other column than 4-5 in any well will make the same well blocked.
 \end{lem}
 
 \begin{proof}
 In the first case, the well is closed. We can only place the $\mathbf{H}$ block in column 2-3. Since no cells are cleared as a result, column 1 to 4 are filled except for the top two rows. We therefore cannot place any block in these columns without a game over. Either the column right of column 5 is filled, or the gameboard has ended. Since column 4 is also filled, we cannot place any block in column 5. Thus the well is permanently closed.
 
-In the second case, the well is open. Apart from column 4-5, the $\mathbf{H}$ block can only be placed in column 3-4. This does not clear any cells as a result. Thus with the same arguments as in the first case, the well is permanently closed.
+In the second case, the well is open. Apart from column 4-5, the $\mathbf{H}$ block can only be placed in column 3-4. This does not clear any cells as a result. Thus with the same arguments as in the first case, the well is blocked.
 \end{proof}
 
-Since later in the proof it will become apparent that having a permanently closed well makes it impossible to construct a optimal trajectory sequence, lemma~\ref{lem:permclose} leaves us no choice but to place all $\mathbf{H}$ blocks in column 4-5 of the open well. Finally the last $\mathbf{H}_H$ block must be placed either in column 2-3 of a closed well, or column 3-4 of an open well, in order to not permanently close a well.
+Since later in the proof it will become apparent that having a blocked well makes it impossible to construct a optimal trajectory sequence, lemma~\ref{lem:permclose} leaves us no choice but to place all $\mathbf{H}$ blocks in column 4-5 of the open well. Finally the last $\mathbf{H}_H$ block must be placed either in column 2-3 of a closed well, or column 3-4 of an open well, in order to not block a well.
 
 \bigbreak
 
 \begin{lem}
-In phase 1, for each well: Column 1 is unchanged. Column 2-4 will be filled below row $2 \left( \sum Q + K + 1 \right) - 3$. Column 5 is empty as long as the well is not blocked.
+In phase 1, for each well: Column 1 is unchanged from $B_0$. Column 2-4 will be filled below row $2 \left( \sum Q + K + 1 \right) - 3$. Column 5 is empty as long as the well is not blocked.
 \end{lem}
 
 \begin{proof}
