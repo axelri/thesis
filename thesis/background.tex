@@ -42,7 +42,8 @@ Candy Crush and Bejeweled are both popular puzzle games with the same concept of
 
 \subsubsection{Tetris}
 
-Tetris is a popular puzzle game where the player is given a sequence of tetrominoes to pack into a grid-based rectangular gameboard. If a row is completely filled it is cleared and all pieces above the cleared row is dropped by one row. Using the NP-complete 3-Partition problem the offline version of Tetris has been shown to be NP-complete considering specific goals, for example maximizing the number of cleared rows. The reduction is done by building a Tetris gameboard from instances of the 3-Partition problem. A specific sequence of pieces are defined for each number in the 3-Partition instance. The authors show that for every yes-instance of 3-Partition there exists a trajectory given the sequences which clear the entire gameboard without triggering a loss. An important note is that the reduction does not use all of the tetrominoes existing in the game and therefore is slightly simplified. In the same paper, it is also shown that Tetris is highly inapproximable. 
+Tetris is a popular puzzle game where the player is given a sequence of  four-sized blocks, ``tetrominoes'', to pack into a grid-based rectangular gameboard. If a row is completely filled it is cleared and all pieces above the cleared row is dropped by one row. In one paper the authors
+shows the NP-completeness of offline Tetris wih specific goals using the NP-complete \textit{3-Partition} problem. Some considered goals are the number of cleared rows and for how long the player can survive. The reduction is done by building a Tetris gameboard from instances of the 3-Partition problem. A specific sequence of pieces are then defined for each number in the 3-Partition instance. In the same paper, it is also shown that Tetris is highly inapproximable. 
 
 \subsection{Lumines and its similarities to Tetris}
 \label{subsub:sim}
