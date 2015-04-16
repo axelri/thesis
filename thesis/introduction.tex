@@ -24,7 +24,7 @@ Lumines is a two-dimensional grid game, in which a sequence of $2 \times 2$ dich
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{
+    \resizebox{0.6\textwidth}{!}{
     \begin{subfigure}[b]{0.45\linewidth}
         \resizebox{\linewidth}{!}{
         \begin{tikzpicture}
@@ -71,7 +71,7 @@ If at any point the player forms a monochromatic $2 \times 2$ square, all cells 
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{
+    \resizebox{0.6\textwidth}{!}{
         \begin{subfigure}[b]{.3\linewidth}
         \fbox{
         \begin{tikzpicture}
@@ -123,10 +123,10 @@ If at any point the player forms a monochromatic $2 \times 2$ square, all cells 
     \caption{Marking of $2 \times 2$ monochromatic squares (from \cite{lumines})}
 \end{figure}
 
-The version of Lumines found in the actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
+The version of Lumines found in the actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on a partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
 
-\subsection{Online and offline}
-In Lumines all blocks given to the player are generated using a pseudorandom number generator. The player will therefore not know what blocks to expect after the three blocks given from the lookahead. In this report this will be refered to as the \textit{online} version of the game. In contrast to online Lumines we will refer to the game where all blocks are known beforehand as the \textit{offline} version of the game.
+\subsection{Online and offline Lumines}
+In Lumines all playable blocks are generated probabilistically. In this report feature will be refered to as \textit{online}. In contrast, a game of Lumines where all playable blocks are known beforehand will be referred to as \textit{offline}.
 
 \subsection{Problem statement}
 This report considers the generalized version of the game, which is played on an $n \times m$-gameboard. The authors seek to formalize and simplify Lumines, and explore this new system's computational complexity characteristics. Certain goals of the game are considered by translating them into decision problems in this system.
