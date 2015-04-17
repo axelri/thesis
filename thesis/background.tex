@@ -9,7 +9,7 @@ A reduction from any decision problem $A$ to any other decision problem $B$ is v
 \subsection{NP and PSPACE}
 \textit{NP} is defined as the set of all decision problems where a yes-instance can be verified in polynomial time. If it is possible to reduce all problems in NP to a particular problem, that problem is defined to be \textit{NP-hard}. A problem is defined to be \textit{NP-complete} if it is both in NP and NP-hard. From this follows that if there exists a polynomial reduction from any NP-complete problem to some problem in NP, that problem is NP-complete as well. This is a commonly used method when proving NP-completeness for new decision problem.
 
-PSPACE is the set of all decision problems that can be solved by a Turing machine in a polynomial amount of memory space. Similar to NP-complete, a problem is PSPACE-complete if it is in PSPACE and all other problems in PSPACE can be reduced to the problem.
+PSPACE is the set of all decision problems that can be solved by a Turing machine in a polynomial amount of memory space. Similar to NP-complete, a problem is PSPACE-complete if it is in PSPACE and all other problems in PSPACE can be reduced to the problem. \cite{komplexitetsklasser}
 
 \subsection{The Subset Sum problem}
 
@@ -31,7 +31,7 @@ In one paper on Classical Nintendo Games, the computational complexity of games 
 
 \subsubsection{Lemmings}
 
-Lemmings is a 2D puzzle-platformer game where the objective is to guide a couple of characters called lemmings through obstacles to reach a designated exit by giving the lemmings abilities such as digging or building. In one paper a proof that Lemmings is NP-complete is presented that uses gadgets. This is similiar to the proof of the classical Nintendo games. The authors of the paper also use the 3-SAT problem to prove NP-hardness. 
+Lemmings is a 2D puzzle-platformer game where the objective is to guide a couple of characters called lemmings through obstacles to reach a designated exit by giving the lemmings abilities such as digging or building. In one paper a proof that Lemmings is NP-complete is presented that uses gadgets. This is similiar to the proof of the classical Nintendo games. The authors of the paper also use the 3-SAT problem to prove NP-hardness. \cite{lemmings} 
 
 \subsubsection{Minesweeper}
 Minesweeper is a popular puzzle game shipped with the Windows operating system. The game is played on a $n \times m$ gameboard where random cells are designated to contain mines. The goal of the game is to clear all cells except the ones containing the mines. In one paper on Minesweeper, the author use SAT to prove NP-hardness by building Minesweeper configurations of logic circuits consisting of NOT-, AND- and XOR-gates \cite{minesweeper}.
