@@ -70,7 +70,7 @@ A \textit{trajectory} $\tau$ of a block $P$ is a finite sequence of (legal) game
 A \textit{game} $\mathcal{G} = (B_0, P_1, \ldots, P_p)$ is defined as an initial gameboard and a sequence of blocks to be placed by the player. A \textit{trajectory sequence} $\phi = (B_0, \tau_1, B_1, \ldots ,\tau_p, B_p)$ is a sequence in which for each $i$ the trajectory $\tau_i$ applied to the game block $P_i$ on the gameboard $B_{i-1}$ results in the gameboard $B_i$. If $\phi$ contains any trajectory $\tau_q$ which puts the game in a losing state, $\phi$ naturally terminates at $B_q$ instead of $B_p$.
 
 \subsection{Alternating rows}
-Simply put, a column contains \textit{alternating rows} in an interval if every filled cell has a different color from the adjacent cells in the same interval. More rigorous definitions are presented below.
+A column contains \textit{alternating rows} in an interval if every cell in the interval is filled and has a different color from the adjacent cells in the same interval. Some more rigorous definitions are presented below. \\
 
 \begin{defn}
 If every cell in $\langle r, c \rangle, \; r \in \{a, \ldots, b\}, \; |b-a| \geq 1$ is filled and has one color if $r \equiv a \pmod{2}$, and another color if $r \equiv a + 1 \pmod{2}$, the interval $\left[ a, b \right]$ is said to be alternating in column $c$.
