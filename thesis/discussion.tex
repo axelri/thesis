@@ -7,7 +7,53 @@ The two main ways the player can control the blocks in the original Lumines vide
 
 \subsection{Sweep-line}
 
-In Lumines the sweep-line moves in constant speed from left to right. The marked squares are then cleared as the sweep-line scans the cells in their respective marked squares. The simplified Lumines model that is presented in this paper uses an instant sweep-line, in which the cells are marked and cleared simultaneously when a square is formed. This is similar to how rows are cleared in Tetris, but not the most accurate representation of how the sweep-line works in Lumines. There is probably room for improvement in making a more accurate model of the sweep-line game mechanic. For example, every $n\text{th}$ block that is fixed could trigger the clearing of marked cells. The less accurate model in this report was chosen since it was more suitable to work with given the time limit of the project. It is however important to note that the amount of cells that can be cleared in a given sequence can vary dramatically between different models of the sweep-line (see \textbf{todo figure showing this}). Therefore, in future work, inquires into the impact of the chosen sweep-line model on the computational complexity would be a promising area of research.
+In Lumines the sweep-line moves in constant speed from left to right. The marked squares are then cleared as the sweep-line scans the cells in their respective marked squares. The simplified Lumines model that is presented in this paper uses an instant sweep-line, in which the cells are marked and cleared simultaneously when a square is formed. This is similar to how rows are cleared in Tetris, but not the most accurate representation of how the sweep-line works in Lumines. There is probably room for improvement in making a more accurate model of the sweep-line game mechanic. For example, every $n\text{th}$ block that is fixed could trigger the clearing of marked cells. The less accurate model in this report was chosen since it was more suitable to work with given the time limit of the project. It is however important to note that the amount of cells that can be cleared in a given sequence can vary dramatically between different models of the sweep-line (\autoref{fig:sweep}). Therefore, in future work, inquires into the impact of the chosen sweep-line model on the computational complexity would be a promising area of research.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \draw[dashed] (0, 0) -- (4, 0);
+            \discwell{0}{0}
+            \lummonoblack{1}{7}
+            \draw[->, line width=4pt] (5, 4) -- (7, 4);
+            \draw[dashed] (8, 0) -- (12, 0);
+            \discwell{8}{0}
+            \disch{9}{7}
+            \draw[->, line width=4pt] (13, 4) -- (15, 4);
+            \discwell{16}{0}
+            \disch{17}{0}
+            \end{tikzpicture}
+        }
+        \caption{Instant sweep-line}
+        \vspace*{0.5cm}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.6\textwidth}
+        \resizebox{\linewidth}{!}{
+            \begin{tikzpicture}
+            \draw[dashed] (0, 0) -- (4, 0);
+            \discwell{0}{0}
+            \lummonoblack{1}{7}
+            \draw[->, line width=4pt] (5, 4) -- (7, 4);
+            \draw[dashed] (8, 0) -- (12, 0);
+            \discwell{8}{0}
+            \lummonoblack{9}{0}
+            \disch{9}{7}
+            \draw[line width=3pt] (8.5, 0) -- (8.5, 9);
+            \draw[->, line width=4pt] (13, 4) -- (15, 4);
+            \discwellaftersec{16}{0}
+            \draw[line width=3pt] (16.5, 0) -- (16.5, 9);
+            \end{tikzpicture}
+        }
+        \caption{Continous sweep-line}
+        \vspace*{0.5cm}
+    \end{subfigure}
+    \caption{Different sweep-line models}
+    \label{fig:sweep}
+\end{figure}
+
 
 \subsection{Online Lumines}
 

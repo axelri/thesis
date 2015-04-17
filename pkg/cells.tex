@@ -365,3 +365,49 @@
     \draw[dotted] (#1+2, #2+2) -- (#1+2, #2+4);
     \draw (#1+2, #2+4) -- (#1+2, #2+8);
 }
+
+\newcommand{\discrowone}[2] 
+{
+    \cellb{#1}{#2}
+    \cellb{#1+3}{#2}
+}
+
+\newcommand{\discrowtwo}[2] 
+{
+    \cellw{#1}{#2}
+    \cellw{#1+3}{#2}
+}
+
+\newcommand{\discblock}[2] 
+{
+    \discrowtwo{#1}{#2}
+    \discrowone{#1}{#2+1}
+}
+
+\newcommand{\discwell}[2] 
+{
+    \discblock{#1}{#2}
+    \discblock{#1}{#2+2}
+    \discblock{#1}{#2+4}
+}
+
+\newcommand{\disch}[2]
+{
+    \cellb{#1}{#2}
+    \cellb{#1+1}{#2}
+    \cellw{#1}{#2+1}
+    \cellw{#1+1}{#2+1}
+}
+
+\newcommand{\discwellafter}[2] 
+{
+    \discwell{#1}{#2}
+    \lummonoblack{3}{#1+1}{#2}
+}
+
+\newcommand{\discwellaftersec}[2] 
+{
+    \discwell{#1}{#2}
+    \cellw{#1+1}{#2}
+    \cellw{#1+2}{#2}
+}
