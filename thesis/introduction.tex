@@ -2,6 +2,12 @@
 
 In recent years a number of studies concerning computational complexity in video games has been conducted. The studies have been on all kinds of genres, from platformers to puzzle games. So far these studies seem to have ignored the popular puzzle game Lumines. In this report a simplified model of Lumines is constructed. A decision problem is then formulated in the model. The decision problem is proven to be in NP. A reduction from the NP-complete \textit{Subset sum} to the game model is then presented, showing that the simplified version of Lumines is NP-complete. 
 
+Lumines is a game of interest because to the authors' knowledge it is not well researched from the perspective of computational complexity. Several similar games has been more thoroughly researched in recent years and comparing Lumines to these findings might yield interesting results. New findings on the computational complexity of Lumines may aid in the development of video game artificial intelligence. Our understanding of computational complexity in generic 2-dimensional grid games may also benefit from this research. Combining results from this report with results from previous similar research might make it possible to find a correlation between certain game characteristics and classes of computational complexity.
+
+\subsection{Technical Overview}
+
+An environment modeling Lumines is formulated and the computational complexity of this environment is shown to be NP-complete. In the domain of computational complexity, Lumines has not been researched priorly to this report. The proof in this report uses a reduction from the \textit{subset sum} problem. \textit{Subset sum} has not been used extensively in previous studies on computational complexity in video games.
+
 \subsection{The game}
 The video game Lumines was released in December 2004 in Japan for the PSP platform. The game was a major success for the developer Q Entertainment, and has since its original release been followed with a couple of sequels \cite{wiki:lumines}.
 \begin{figure}[H]
@@ -137,11 +143,3 @@ The main problem this report intend to answer is:
 \begin{itemize}
         \item Is (standard mode) Lumines NP-complete?
 \end{itemize}
-
-\subsection{Motivation}
-
-Lumines is a game of interest because to the authors' knowledge it is not well researched from the perspective of computational complexity. Several similar games has been more thoroughly researched in recent years and comparing Lumines to these findings might yield interesting results. New findings on the computational complexity of Lumines may aid in the development of video game artificial intelligence. Our understanding of computational complexity in generic 2-dimensional grid games may also benefit from this research. Combining results from this report with results from previous similar research might make it possible to find a correlation between certain game characteristics and classes of computational complexity.
-
-\subsection{Technical Overview}
-
-This report presents some results that to the authors' knowledge has not been presented so far. Lumines computational complexity has not been established and this report gives solid indications that it is NP-complete. Furthermore the authors' has not seen the subset sum problem used much in reductions when considering the complexity of video games.
