@@ -126,7 +126,7 @@ If at any point the player forms a monochromatic $2 \times 2$ square, all cells 
         }
         \end{subfigure}
     }
-    \caption{Marking of $2 \times 2$ monochromatic squares (from \cite{lumines})}
+    \caption{Marking of $2 \times 2$ monochromatic squares \cite{lumines})}
 \end{figure}
 
 The version of Lumines found in the actual video games is played on a $10 \times 16$-gameboard. The goal of the standard game mode in Lumines is to survive, to keep placing blocks inside the gameboard, for as long as possible and clear as much terrain as possible in the process. The blocks given to the player is generated randomly, and 3-block lookahead is provided. The game starts on a partially filled gameboard, which varies in size depending on the difficulty level \cite{lumines}.
@@ -135,9 +135,9 @@ The version of Lumines found in the actual video games is played on a $10 \times
 In Lumines all playable blocks are generated probabilistically. In this report this feature will be refered to as \textit{online}. In contrast, a game of Lumines where all playable blocks are known beforehand will be referred to as \textit{offline}.
 
 \subsection{Problem statement}
-This report considers the generalized version of the game, which is played on an $n \times m$-gameboard. The authors seek to formalize and simplify Lumines, and explore this new system's computational complexity characteristics. The maximization of cleared cells is the main goal this paper examines and is translated into a decision problem ``Can k cells be cleared?''. 
+This report considers the generalized version of the game, which is played on an $n \times m$-gameboard. The authors seek to formalize and simplify Lumines, and explore this new system's computational complexity characteristics. The maximization of cleared cells is the main goal this paper examines and is translated into a decision problem ``Can k cells be cleared given a particular Lumines game?''. 
 
-While the sweep-line is a core characteristic of Lumines, this report considers all marked terrain as instantly cleared. Furthermore the report will consider the offline version of the game. These are the two main simplifications, although a more thorough discussion is provided in \nameref{method}. The impact of these simplifications on the validity of the results is considered in \nameref{discussion}.
+While the sweep-line is a core characteristic of Lumines, all marked terrain will be considered instantly cleared. Furthermore only the offline version of the game with no allowed block rotations during gameplay will be considered. These are the three main simplifications  assumed in this report, although a more thorough discussion is provided in \nameref{method}. The impact of these simplifications on the validity of the results is considered in \nameref{discussion}.
 
 The main problem this report intend to answer is:
 \begin{itemize}
