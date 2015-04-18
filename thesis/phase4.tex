@@ -1,7 +1,7 @@
 \subsubsection{Phase 4}
-If the blocks has been placed as described in the previous phases, any block can only be placed in column 4-5 of the open well without trigger a game over. A sequence of $\sum Q - 1$ $\mathbf{LB}$ blocks are generated. Placing these blocks in column 4-5 of the open well will collapse column 4. This makes room for another placement, just like $\mathbf{H}$ blocks did in \nameref{subsub:phaseone}. Since no other terrain is cleared as a result of this placement, we are forced to continue placing the $\mathbf{LB}$ blocks in the jame manner.
+If the blocks have been placed as described in the previous phases, any block can only be placed in column 4-5 of the open well without entering a losing state. A sequence of $\sum Q - 1$ $\mathbf{LB}$ blocks are generated. Placing these blocks in column 4-5 of the open well will collapse column 4. This makes room for another placement, just like the $\mathbf{H}$ blocks did in \nameref{subsub:phaseone}. Since no other terrain is cleared as a result of this placement, we are forced to continue placing the $\mathbf{LB}$ blocks in the same manner.
 
-The first $\sum Q - M_w$ blocks will clear 4 cells each, and gradually slide down the white cells of column 4.
+The first $\sum Q - M_w$ blocks will clear 4 cells each, and gradually ``slide down'' the white cells of column 4.
 
 When placing block $\sum Q - \sum M_w + 1$ the well open $w$ thus has the properties depicted in~\autoref{fig:beforecol}.
 
@@ -48,7 +48,7 @@ When placing block $\sum Q - \sum M_w + 1$ the well open $w$ thus has the proper
     \label{fig:beforecol}
 \end{figure}
 
-The placement of block $\sum Q - \sum M_w + 1$, and the subsequent collapse of column 4 will result in 3 white cells from column 4 matching 3 white cells from column 3, thus clearing a $3 \times 2$ white rectangle. This will in turn result in the collapse of column 3 and 4 by three rows as depicted in~\autoref{fig:collapse}. 
+The placement of block $\sum Q - \sum M_w + 1$, and the subsequent collapse of column 4, will result in 3 white cells from column 4 matching 3 white cells from column 3; thus clearing a $3 \times 2$ white rectangle. This will in turn result in the collapse of column 3 and 4 by three rows as depicted in~\autoref{fig:collapse}. 
 
 The placement will indirectly clear 10 cells in total. Thus in this phase $4 \left( \sum Q - M_w \right) + 10$ cells can be cleared at most.
 
@@ -86,4 +86,4 @@ The placement will indirectly clear 10 cells in total. Thus in this phase $4 \le
     \label{fig:collapse}
 \end{figure}
 
-At the end of this phase, at most $8a + 5 \sum Q - 4 \sum M_w + 20$ cells have been cleared in total.
+Thus at the end of this phase, at most $8a + 5 \sum Q - 4 \sum M_w + 20$ cells have been cleared in total.

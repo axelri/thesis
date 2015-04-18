@@ -1,28 +1,30 @@
 \section{Special case of the reduction}
 \label{specialcasereduction}
 
-In \ref{phase3} we mention a special case of the reduction where the player has chosen to put all $\mathbf{H}$ from phase 1 in the same well and then close it during phase 2. The following will show that this case can never clear enough rows to be a solution for a ``yes''-instance.
+In \ref{phase3} we mention a special case of the reduction where the player has chosen to put all $\mathbf{H}$ blocks from phase 1 in the same well and then closed this well during phase 2. The following will show that if this case is reached it is not possible to create an optimal clearing of cells in the given game.
 
 \subsection*{Phase 3}
-Being in the state explained above give the player a chance to clear the black cells in column 3-4 with the $\mathbf{MB}$ block clearing 6 cells in total. The player can also choose to clear the white cell in column 2 with the remaining $\mathbf{MW}$ however this is irrelevant to the question whether this special case can clear enough rows to show a false ``yes''-instance since it clears the same amount of cells and the gameboard will have the same terrain.
+Being in the state explained above gives the player the option to clear the black cells in column 3-4 with a $\mathbf{MB}$ block, clearing 6 cells in total. When the player places the $\mathbf{MW}$ block, she can choose either to place it in column 2-3 or in column 3-4. However this is irrelevant to the question of whether it is possible to clear an optimal amount of cells, since the two options clear the same amount of cells and result in the same gameboard.
 
-Because of the two extra cells cleared in phase 3 the total amount of cells cleared after phase 3 is at most $8a + \sum Q + 12$ cells.
+Because two extra cells are cleared in this phase, the total amount of cells cleared after phase 3 is at most $8a + \sum Q + 12$ cells in this special case.
 
-\subsection*{Phase 4 \& Phase 5}
+\subsection*{Phase 4 and 5}
 
-Phase 4 \& Phase 5 can be seen as the same phase when looking at the this special case. During this phase the player place $\sum Q - 1$ $\mathbf{LB}$ blocks on the gameboard. To maximize the amount of cells cleared it is required to place them in column 4-5. In column 4 there are $2 \sum \left( Q + K - 1 \right) - 1$ cells which means the maximum amount of cells cleared during this phase is $ 4 \left( \sum Q - 1 \right)$. This leaves $2K-1$ black cells in column 4.
+Phase 4 and 5 can be seen as the same phase in this special case. During this 4-5 phase the player places $\sum Q - 1$ $\mathbf{LB}$ blocks on the gameboard. To maximize the amount of cleared cells she is required to place the blocks in column 4-5. In column 4 there are $2 \sum \left( Q + K - 1 \right) - 1$ cells, which means the maximum amount of cleared cells during this phase is $ 4 \left( \sum Q - 1 \right)$. This leaves $2K-1$ black cells in column 4.
 
-Thus the maximum amount of cleared cells in the special case is
+\subsection*{Summing of the phases}
+
+Given the information in previous sections, the maximum amount of cleared cells in this special case is
 
 \begin{align*}
   & 8a + \sum Q + 12 + 4 \left( \sum Q - 1 \right) \\
 = \; & 8a + 5 \sum Q + 8
 \end{align*}
 
-Given by \ref{sub:nphard} $K > 1$ in the general case and therefore: 
+Compared to the general case given for $K > 1$, given in \ref{sub:nphard}, this case yields fewer possible cleared cells.
 
 \begin{equation*}
 8a + 5 \sum Q + 8 < 8a + 5 \sum Q + 4 + 4K
 \end{equation*}
 
-Therefore, the special case can never result in the optimal amount of cleared cells.
+Therefore, the special case can never result in an optimal amount of cleared cells.
