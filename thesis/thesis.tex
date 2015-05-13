@@ -26,6 +26,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
 \usepackage[ireport, eng]{pkg/KTHEEtitlepage}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -44,7 +45,6 @@
 \newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
 \newtheorem{exmp}[thm]{Example} % same for example numbers
 
-\begin{document}
 \ititle{\ctitle}
 \isubtitle{\csubtitle}
 \iauthor{\cauthor}
@@ -52,7 +52,13 @@
 %\irefnr{IR-EE-Dummy 2000:099}
 
 \iaddress{\caddress}
+\begin{document}
+\thispagestyle{empty}
+\includepdf[pages=1]{resource/cover.pdf}
+
+\thispagestyle{empty}
 \makeititle
+
 \thispagestyle{empty}
 \begin{abstract}
 \input{thesis/abstract.tex}
@@ -75,5 +81,8 @@
 \begin{appendices}
 \input{thesis/appendix.tex}
 \end{appendices}
+\newpage
+\thispagestyle{empty}
+\includepdf[pages=2]{resource/cover.pdf}
 
 \end{document}
